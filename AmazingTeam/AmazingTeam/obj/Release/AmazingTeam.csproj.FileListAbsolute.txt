@@ -1,0 +1,6 @@
+c:\users\davieboy\documents\visual studio 2013\Projects\AmazingTeam\AmazingTeam\bin\AmazingTeam.dll.config
+c:\users\davieboy\documents\visual studio 2013\Projects\AmazingTeam\AmazingTeam\bin\AmazingTeam.dll
+c:\users\davieboy\documents\visual studio 2013\Projects\AmazingTeam\AmazingTeam\bin\AmazingTeam.pdb
+c:\users\davieboy\documents\visual studio 2013\Projects\AmazingTeam\AmazingTeam\obj\Release\AmazingTeam.csprojResolveAssemblyReference.cache
+c:\users\davieboy\documents\visual studio 2013\Projects\AmazingTeam\AmazingTeam\obj\Release\AmazingTeam.dll
+c:\users\davieboy\documents\visual studio 2013\Projects\AmazingTeam\AmazingTeam\obj\Release\AmazingTeam.pdb
