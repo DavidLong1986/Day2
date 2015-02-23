@@ -57,7 +57,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\PublishProfiles\AmazingTest - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\AmazingTest - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\AmazingTest - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\AmazingTest - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\AmazingTest.pubxml" />
     <None Include="Web.Debug.config">
@@ -104,6 +106,13 @@
     <Content Include="Scripts\jquery-1.9.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLayer\BusinessLayer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccessLayer\Customer.cs" />
+    <Compile Include="DataAccessLayer\Owner.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -216,8 +225,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="BusinessLayer\" />
-    <Folder Include="DataAccessLayer\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>

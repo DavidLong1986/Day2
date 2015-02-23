@@ -7,7 +7,5 @@
   </div>
 </div>
 <asp:label id="debuggy" runat="server"/>
-
-<h2> my test page</h2>
-Load this first to check the syntax of your page
+<asp:label id="MessageLine" runat="server"/>
 </asp:Content>

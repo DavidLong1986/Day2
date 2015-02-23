@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System.Diagnostics;
+using System.Data.SqlClient;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +14,6 @@ using System.Collections;
 using System.Web.Security;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
-using System.Data.SqlClient;
 using System.IO;
 using System.Text;
 using System.Threading;
@@ -25,7 +28,8 @@ namespace AmazingTeam.PresentationLayer
 {
     public partial class SuccessTranscation : System.Web.UI.Page
     {
-
+        public const string StrConn = "Server=tcp:j5ldchdajd.database.windows.net,1433;Database=AmazingTeamDatabase;User ID=AmazingTeam@j5ldchdajd;Password=Baist3990?;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;";
+        
         void Send_download_link(string from, string to, string subject, string body)
         {
             try
@@ -90,68 +94,97 @@ namespace AmazingTeam.PresentationLayer
                 string pay_date = these_argies["payment_date"];
 
                 //Item Name
-                string paid_Item_1 = these_argies["item_name"];
-                string paid_Item_2 = these_argies["item_name1"];
-                string paid_Item_3 = these_argies["item_name2"];
-                string paid_Item_4 = these_argies["item_name3"];
-                string paid_Item_5 = these_argies["item_name4"];
-                string paid_Item_6 = these_argies["item_name5"];
-                string paid_Item_7 = these_argies["item_name6"];
-                string paid_Item_8 = these_argies["item_name7"];
-                string paid_Item_9 = these_argies["item_name8"];
-                string paid_Item_10 = these_argies["item_name9"];
-
+                string paid_Item_1 = these_argies["item_name1"];
+                string paid_Item_2 = these_argies["item_name2"];
+                string paid_Item_3 = these_argies["item_name3"];
+                string paid_Item_4 = these_argies["item_name4"];
+                string paid_Item_5 = these_argies["item_name5"];
+                string paid_Item_6 = these_argies["item_name6"];
+                string paid_Item_7 = these_argies["item_name7"];
+                string paid_Item_8 = these_argies["item_name8"];
+                string paid_Item_9 = these_argies["item_name9"];
+                string paid_Item_10 = these_argies["item_name10"];
 
                 //Item ID
-                string paid_ItemId_1 = these_argies["item_number"];
-                string paid_ItemId_2 = these_argies["item_number1"];
-                string paid_ItemId_3 = these_argies["item_number2"];
-                string paid_ItemId_4 = these_argies["item_number3"];
-                string paid_ItemId_5 = these_argies["item_number4"];
-                string paid_ItemId_6 = these_argies["item_number5"];
-                string paid_ItemId_7 = these_argies["item_number6"];
-                string paid_ItemId_8 = these_argies["item_number7"];
-                string paid_ItemId_9 = these_argies["item_number8"];
-                string paid_ItemId_10 = these_argies["item_number9"];
+                string paid_ItemId_1 = these_argies["item_number1"];
+                string paid_ItemId_2 = these_argies["item_number2"];
+                string paid_ItemId_3 = these_argies["item_number3"];
+                string paid_ItemId_4 = these_argies["item_number4"];
+                string paid_ItemId_5 = these_argies["item_number5"];
+                string paid_ItemId_6 = these_argies["item_number6"];
+                string paid_ItemId_7 = these_argies["item_number7"];
+                string paid_ItemId_8 = these_argies["item_number8"];
+                string paid_ItemId_9 = these_argies["item_number9"];
+                string paid_ItemId_10 = these_argies["item_number10"];
                 // For Quantity 
-                string paid_Quantity_1 = these_argies["quantity"];
-                string paid_Quantity_2 = these_argies["quantity1"];
-                string paid_Quantity_3 = these_argies["quantity2"];
-                string paid_Quantity_4 = these_argies["quantity3"];
-                string paid_Quantity_5 = these_argies["quantity4"];
-                string paid_Quantity_6 = these_argies["quantity5"];
-                string paid_Quantity_7 = these_argies["quantity6"];
-                string paid_Quantity_8 = these_argies["quantity7"];
-                string paid_Quantity_9 = these_argies["quantity8"];
-                string paid_Quantity_10 = these_argies["quantity9"];
+                string paid_Quantity_1 = these_argies["quantity1"];
+                string paid_Quantity_2 = these_argies["quantity2"];
+                string paid_Quantity_3 = these_argies["quantity3"];
+                string paid_Quantity_4 = these_argies["quantity4"];
+                string paid_Quantity_5 = these_argies["quantity5"];
+                string paid_Quantity_6 = these_argies["quantity6"];
+                string paid_Quantity_7 = these_argies["quantity7"];
+                string paid_Quantity_8 = these_argies["quantity8"];
+                string paid_Quantity_9 = these_argies["quantity9"];
+                string paid_Quantity_10 = these_argies["quantity10"];
 
                 string paid_txn_id = these_argies["txn_id"];
                 string paid_mc_gross = these_argies["mc_gross"];
-                
- 
+                string receiverEmail = these_argies["receiver_email"];
 
-               
-                    
-                    
 
-                string List_Item = " Your Items are: " + paid_Item_1 + " = " + paid_Quantity_1 + ", " + paid_Item_2 + " = " + paid_Quantity_2 + ", " + paid_Item_3 + " = " + paid_Quantity_3 + ", " + paid_Item_4 + " = " + paid_Quantity_4 + ", " + paid_Item_5 + " = " + paid_Quantity_5 + ", " + paid_Item_6 + " = " + paid_Quantity_6 + ", " + paid_Item_7 + " = " + paid_Quantity_7 + ", " + paid_Item_8 + " = " + paid_Quantity_8 + ", " + paid_Item_9 + " = " + paid_Quantity_9 + ", " + paid_Item_10 + " = " + paid_Quantity_10;
+            // accept a few different date formats because of PST/PDT timezone and slight month difference in sandbox vs. prod.
+            string[] dateFormats = { "HH:mm:ss MMM dd, yyyy PST", "HH:mm:ss MMM. dd, yyyy PST", "HH:mm:ss MMM dd, yyyy PDT", "HH:mm:ss MMM. dd, yyyy PDT" };
+            DateTime outputDateTime;
 
-                
+            DateTime.TryParseExact(pay_date, dateFormats, new System.Globalization.CultureInfo("en-US"), System.Globalization.DateTimeStyles.None, out outputDateTime);
+
+            // convert to local timezone
+            outputDateTime = outputDateTime.AddHours(1);
+
+         
+
+                string List_Item = " Your Items are: " + paid_ItemId_1 + " = " + paid_Quantity_1 + ", " + paid_ItemId_2 + " = " + paid_Quantity_2 + ", " + paid_ItemId_3 + " = " + paid_Quantity_3 + ", " + paid_ItemId_4 + " = " + paid_Quantity_4 + ", " + paid_Item_5 + " = " + paid_Quantity_5 + ", " + paid_Item_6 + " = " + paid_Quantity_6 + ", " + paid_Item_7 + " = " + paid_Quantity_7 + ", " + paid_Item_8 + " = " + paid_Quantity_8 + ", " + paid_Item_9 + " = " + paid_Quantity_9 + ", " + paid_Item_10 + " = " + paid_Quantity_10;
+
+
 
                 if (pay_stat.Equals("Completed"))
                 {
+                    Send_download_link("davidlong1986@gmail.com", "davidlong1986@gmail.com", "Your order for " + payer_fristName + " " + payer_LastName, "Thanks for your order on " + pay_date + List_Item + " " + System.Environment.NewLine + "TxnId = " + paid_txn_id + " " + System.Environment.NewLine + "Gross = " + paid_mc_gross + " ");
 
 
-                    //Orginal Code
-                    //Send_download_link("davidlong1986@gmail.com", user_email, "Your order", "Thanks for your order this the downnload link ... blah blah blah");
-                    //Good.Text = "all good";
+                    //The reason why the Lister is not at the Business Layer is because that speed is need here
+                    //Or else Paypal send another IPN a every second. 
+                    using (SqlConnection myConnection = new SqlConnection(StrConn))
+                    {
+
+                        SqlCommand commamd = new SqlCommand("AddCustomerOrder", myConnection);
+                        commamd.CommandType = CommandType.StoredProcedure;
+
+                        commamd.Parameters.Add("@CustomerID", SqlDbType.NVarChar).Value = user_email;
+                        commamd.Parameters.Add("@CustomerFirstName", SqlDbType.NVarChar).Value = payer_fristName;
+                        commamd.Parameters.Add("@CustomerLastName", SqlDbType.NVarChar).Value = payer_LastName;
 
 
-                    Send_download_link("davidlong1986@gmail.com", "davidlong1986@gmail.com", "Your order for " + payer_fristName + " " + payer_LastName, "Thanks for your order on " + pay_date + " Your Items are: " + List_Item + " " + System.Environment.NewLine + "TxnId = " + paid_txn_id + " " + System.Environment.NewLine + "Gross = " + paid_mc_gross + " ");
+                        commamd.Parameters.Add("@ProductIDOne", SqlDbType.Int).Value = Convert.ToInt32(paid_ItemId_1);
+                        commamd.Parameters.Add("@ProductIDTwo", SqlDbType.Int).Value = Convert.ToInt32(paid_ItemId_2);
+                        commamd.Parameters.Add("@ProductIDThree", SqlDbType.Int).Value = Convert.ToInt32(paid_ItemId_3);
+                        commamd.Parameters.Add("@ProductIDFour", SqlDbType.Int).Value = Convert.ToInt32(paid_ItemId_4);
+                        commamd.Parameters.Add("@ProductIDFive", SqlDbType.Int).Value = Convert.ToInt32(paid_ItemId_5);
+                        commamd.Parameters.Add("@ProductIDSix", SqlDbType.Int).Value = Convert.ToInt32(paid_ItemId_6);
+                        commamd.Parameters.Add("@ProductIDSeven", SqlDbType.Int).Value = Convert.ToInt32(paid_ItemId_7);
+                        commamd.Parameters.Add("@ProductIDEight", SqlDbType.Int).Value = Convert.ToInt32(paid_ItemId_8);
+                        commamd.Parameters.Add("@ProductIDNine", SqlDbType.Int).Value = Convert.ToInt32(paid_ItemId_9);
+                        commamd.Parameters.Add("@ProductIDTen", SqlDbType.Int).Value = Convert.ToInt32(paid_ItemId_10);
+
+
+                        commamd.Parameters.Add("@TranscationID", SqlDbType.NVarChar).Value = paid_txn_id;
+                        commamd.Parameters.Add("@OrderDate", SqlDbType.DateTime).Value = Convert.ToDateTime(outputDateTime);
+
+                        commamd.Connection.Open();
+                        commamd.ExecuteNonQuery();
+                    }
                 }
-
-
-                // more checks needed here specially your account number and related stuff
             }
             else if (strResponse == "INVALID")
             {
@@ -162,5 +195,28 @@ namespace AmazingTeam.PresentationLayer
                 //log response/ipn data for manual investigation
             }
         }
+
+
+       
+                
+                
+
+
+
+
+
+                    
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

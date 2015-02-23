@@ -11,18 +11,51 @@
     <asp:TextBox class="form-control" id="UserName" placeholder="User Name" runat="server" />
   </div>
   <div class="form-group">
-    <label for="Password">Password <a href="/sessions/forgot_password" style="color:deeppink">(forgot password)</a></label>
+    <label for="Password">Password </label>
     <asp:TextBox TextMode="Password" class="form-control" id="Password" placeholder="Password" runat="server" />
   </div>
   <div class="form-group">
     <label for="SecretQuestion">Question:<label id ="DatabaseQuestion">BirthDay</label></label>
-    <input type="text" class="form-control" id="SecretAnswer" placeholder="Answer">
+    <asp:TextBox TextMode="Password" class="form-control" id="SecretAnswer" placeholder="Answer" runat="server" />
   </div>
-     
-     <asp:Button id="LoginIn" Text="Sign in" class="btn btn-sm btn-default" runat="server" />
+     <asp:Label runat="server" id="MessageLine"></asp:Label>
+      <hr />
+     <asp:Button id="LoginIn" Text="Sign in" class="btn btn-sm btn-default" runat="server" OnClick="LoginIn_Click1" />
   </form>
   </div>
 </div>
 </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </asp:Content>
