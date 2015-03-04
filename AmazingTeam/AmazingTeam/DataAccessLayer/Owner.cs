@@ -23,7 +23,6 @@ namespace AmazingTeam.DataAccessLayer
 
         public static DataSet LookupUserIDPassword(string UserID, string Password, string Respond)
         {
-            // 6 lines of code
             SqlConnection MyConn = new SqlConnection(StrConn);
             SqlDataAdapter MyAdapter = new SqlDataAdapter("Exec LookupUserIDandPassword @Userid, @Password, @Respond", MyConn);
             MyAdapter.SelectCommand.Parameters.Add("@UserID", SqlDbType.NChar).Value = UserID;
@@ -35,7 +34,7 @@ namespace AmazingTeam.DataAccessLayer
             return MyDataset;
         }
 
-        public static bool AddProduct(string ProductName, string CategoryID, string QuantityPerUnit, string UnitPrice, string UnitsinStock, string UnitsonOrder)
+        public static bool AddProduct(string ProductName, string CategoryID, string QuantityPerUnit, string UnitPrice, string UnitsinStock, string UnitsonOrder, string ProductDescription)
         {
             SqlConnection MyConnection = new SqlConnection(StrConn);
           
@@ -87,6 +86,13 @@ namespace AmazingTeam.DataAccessLayer
             unitsonorder.Direction = ParameterDirection.Input;
             MyCommand.Parameters.Add(unitsonorder);
 
+            SqlParameter Description = new SqlParameter();
+            Description.ParameterName = "@Description";
+            Description.SqlDbType = SqlDbType.Text;
+            Description.Value = ProductDescription;
+            Description.Direction = ParameterDirection.Input;
+            MyCommand.Parameters.Add(Description);
+
 
             MyConnection.Open();
             int rowsAffected;
@@ -136,7 +142,7 @@ namespace AmazingTeam.DataAccessLayer
             return MyDataSet;
         }
 
-        public static bool UpdateProduct(string ProductID, string ProductName, string CategoryID, string QuantityPerUnit, string UnitPrice, string UnitsinStock, string UnitsonOrder)
+        public static bool UpdateProduct(string ProductID, string ProductName, string CategoryID, string QuantityPerUnit, string UnitPrice, string UnitsinStock, string UnitsonOrder, string ProductDescription)
         {
             SqlConnection MyConnection = new SqlConnection(StrConn);
 
@@ -194,6 +200,13 @@ namespace AmazingTeam.DataAccessLayer
             unitsonorder.Direction = ParameterDirection.Input;
             MyCommand.Parameters.Add(unitsonorder);
 
+            SqlParameter Description = new SqlParameter();
+            Description.ParameterName = "@Description";
+            Description.SqlDbType = SqlDbType.Text;
+            Description.Value = ProductDescription;
+            Description.Direction = ParameterDirection.Input;
+            MyCommand.Parameters.Add(Description);
+
 
             MyConnection.Open();
             int rowsAffected;
@@ -247,5 +260,6 @@ namespace AmazingTeam.DataAccessLayer
             }
             return success;
         }
+
     }
 }

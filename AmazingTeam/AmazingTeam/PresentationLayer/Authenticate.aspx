@@ -15,7 +15,7 @@
     <asp:TextBox TextMode="Password" class="form-control" id="Password" placeholder="Password" runat="server" />
   </div>
   <div class="form-group">
-    <label for="SecretQuestion">Question:<label id ="DatabaseQuestion">BirthDay</label></label>
+    <label for="SecretQuestion">Question:<label id ="DatabaseQuestion"></label></label>
     <asp:TextBox TextMode="Password" class="form-control" id="SecretAnswer" placeholder="Answer" runat="server" />
   </div>
      <asp:Label runat="server" id="MessageLine"></asp:Label>

@@ -12,11 +12,27 @@
   <script src="../Scripts/bootstrap.min.js"></script>
 </head>
 <body>
+<style type="text/css">
 
+.widewrapper {
+  width:50%;
+  }
 
+.widewrapper > img {
+  width:50%;
+}
 
-        <div class="navbar-wrapper">
+    </style>
+
+       
+
+      <div class="navbar-wrapper">
   <div class="container">
+
+      <div class="widewrapper main">
+      <img src="https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-xfa1/t31.0-8/10857227_1032002113481198_3783702918645165654_o.jpg" class="img-responsive" alt="JOHN C. LOWERY, INC">
+      </div>
+      <br />
     <div class="navbar navbar-inverse navbar-static-top">
       
         <div class="navbar-header">
@@ -25,11 +41,10 @@
 	      <span class="icon-bar"></span>
 	      <span class="icon-bar"></span>
 	    </a>
-        <a class="navbar-brand" href="#">Bootstrap 3</a>
+        <a class="navbar-brand" href="HomePage.aspx">Home</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-                <li><a href="HomePage.aspx">Home</a></li>
                 <li><a href="Menu.aspx">Menu</a></li>
                 <li><a href="AboutUs.aspx">About Us</a></li>
                 <li><a href="Testimonial.aspx">Testimonials</a></li>

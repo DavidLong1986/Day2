@@ -48,7 +48,7 @@ namespace AmazingTeam.PresentationLayer
                 debuggy.Text = "Send_download_link: " + ex.Message;
 
             }
-        } // --- end of Send_downloa
+        } 
         protected void Page_Load(object sender, EventArgs e)
         {
             //Post back to either sandbox or live
@@ -133,25 +133,26 @@ namespace AmazingTeam.PresentationLayer
                 string receiverEmail = these_argies["receiver_email"];
 
 
-            // accept a few different date formats because of PST/PDT timezone and slight month difference in sandbox vs. prod.
-            string[] dateFormats = { "HH:mm:ss MMM dd, yyyy PST", "HH:mm:ss MMM. dd, yyyy PST", "HH:mm:ss MMM dd, yyyy PDT", "HH:mm:ss MMM. dd, yyyy PDT" };
-            DateTime outputDateTime;
+                // accept a few different date formats because of PST/PDT timezone and slight month difference in sandbox vs. prod.
 
-            DateTime.TryParseExact(pay_date, dateFormats, new System.Globalization.CultureInfo("en-US"), System.Globalization.DateTimeStyles.None, out outputDateTime);
+                string[] dateFormats = { "HH:mm:ss MMM dd, yyyy PST", "HH:mm:ss MMM. dd, yyyy PST", "HH:mm:ss MMM dd, yyyy PDT", "HH:mm:ss MMM. dd, yyyy PDT" };
+                DateTime outputDateTime;
 
-            // convert to local timezone
-            outputDateTime = outputDateTime.AddHours(1);
+                DateTime.TryParseExact(pay_date, dateFormats, new System.Globalization.CultureInfo("en-US"), System.Globalization.DateTimeStyles.None, out outputDateTime);
 
-         
+                // convert to local timezone
 
-                string List_Item = " Your Items are: " + paid_ItemId_1 + " = " + paid_Quantity_1 + ", " + paid_ItemId_2 + " = " + paid_Quantity_2 + ", " + paid_ItemId_3 + " = " + paid_Quantity_3 + ", " + paid_ItemId_4 + " = " + paid_Quantity_4 + ", " + paid_Item_5 + " = " + paid_Quantity_5 + ", " + paid_Item_6 + " = " + paid_Quantity_6 + ", " + paid_Item_7 + " = " + paid_Quantity_7 + ", " + paid_Item_8 + " = " + paid_Quantity_8 + ", " + paid_Item_9 + " = " + paid_Quantity_9 + ", " + paid_Item_10 + " = " + paid_Quantity_10;
+                outputDateTime = outputDateTime.AddHours(1);
+
+
+
+            string List_Item = "Items are: " + paid_Item_1 + " = " + paid_Quantity_1 + ", " + paid_Item_2 + " = " + paid_Quantity_2 + ", " + paid_Item_3 + " = " + paid_Quantity_3 + ", " + paid_Item_4 + " = " + paid_Quantity_4 + ", " + paid_Item_5 + " = " + paid_Quantity_5 + ", " + paid_Item_6 + " = " + paid_Quantity_6 + ", " + paid_Item_7 + " = " + paid_Quantity_7 + ", " + paid_Item_8 + " = " + paid_Quantity_8 + ", " + paid_Item_9 + " = " + paid_Quantity_9 + ", " + paid_Item_10 + " = " + paid_Quantity_10;
 
 
 
                 if (pay_stat.Equals("Completed"))
                 {
-                    Send_download_link("davidlong1986@gmail.com", "davidlong1986@gmail.com", "Your order for " + payer_fristName + " " + payer_LastName, "Thanks for your order on " + pay_date + List_Item + " " + System.Environment.NewLine + "TxnId = " + paid_txn_id + " " + System.Environment.NewLine + "Gross = " + paid_mc_gross + " ");
-
+                    Send_download_link("davidlong1986@gmail.com", "davidlong1986@gmail.com", "New order for " + payer_fristName + " " + payer_LastName, "order on " + pay_date + List_Item + " " + System.Environment.NewLine + "TxnId = " + paid_txn_id + " " + System.Environment.NewLine + "Gross = " + paid_mc_gross + " ");
 
                     //The reason why the Lister is not at the Business Layer is because that speed is need here
                     //Or else Paypal send another IPN a every second. 

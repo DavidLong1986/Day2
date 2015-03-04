@@ -3,3 +3,4 @@ C:\Users\DavieBoy\Documents\Visual Studio 2013\Projects\AmazingTeam\AmazingTeam\
 C:\Users\DavieBoy\Documents\Visual Studio 2013\Projects\AmazingTeam\AmazingTeam\bin\AmazingTeam.pdb
 C:\Users\DavieBoy\Documents\Visual Studio 2013\Projects\AmazingTeam\AmazingTeam\obj\Debug\AmazingTeam.dll
 C:\Users\DavieBoy\Documents\Visual Studio 2013\Projects\AmazingTeam\AmazingTeam\obj\Debug\AmazingTeam.pdb
+C:\Users\DavieBoy\Documents\Visual Studio 2013\Projects\AmazingTeam\AmazingTeam\obj\Debug\AmazingTeam.csprojResolveAssemblyReference.cache

@@ -10,114 +10,132 @@
 namespace AmazingTeam.PresentationLayer {
     
     
-    public partial class Menu {
+    public partial class AddUpdateDelete {
         
         /// <summary>
-        /// Product1Panel control.
+        /// ProductID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Product1Panel;
+        protected global::System.Web.UI.WebControls.TextBox ProductID;
         
         /// <summary>
-        /// Product2Panel control.
+        /// Find control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Product2Panel;
+        protected global::System.Web.UI.WebControls.Button Find;
         
         /// <summary>
-        /// Product3Panel control.
+        /// DynamicTable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Product3Panel;
+        protected global::System.Web.UI.WebControls.Table DynamicTable;
         
         /// <summary>
-        /// Product4Panel control.
+        /// ProductName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Product4Panel;
+        protected global::System.Web.UI.WebControls.TextBox ProductName;
         
         /// <summary>
-        /// Product5Panel control.
+        /// Description control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Product5Panel;
+        protected global::System.Web.UI.WebControls.TextBox Description;
         
         /// <summary>
-        /// Product6Panel control.
+        /// CategoryID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Product6Panel;
+        protected global::System.Web.UI.WebControls.DropDownList CategoryID;
         
         /// <summary>
-        /// Product7Panel control.
+        /// QuantityPerUnit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Product7Panel;
+        protected global::System.Web.UI.WebControls.TextBox QuantityPerUnit;
         
         /// <summary>
-        /// Product8Panel control.
+        /// UnitPrice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Product8Panel;
+        protected global::System.Web.UI.WebControls.TextBox UnitPrice;
         
         /// <summary>
-        /// Product9Panel control.
+        /// UnitInStock control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Product9Panel;
+        protected global::System.Web.UI.WebControls.TextBox UnitInStock;
         
         /// <summary>
-        /// Product10Panel control.
+        /// UnitOnOrder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Product10Panel;
+        protected global::System.Web.UI.WebControls.TextBox UnitOnOrder;
         
         /// <summary>
-        /// Product11Panel control.
+        /// MessageLine control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Product11Panel;
+        protected global::System.Web.UI.WebControls.Label MessageLine;
         
         /// <summary>
-        /// ProductTwelve control.
+        /// Add control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ProductTwelve;
+        protected global::System.Web.UI.WebControls.Button Add;
+        
+        /// <summary>
+        /// Update control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Update;
+        
+        /// <summary>
+        /// Delete control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Delete;
     }
 }

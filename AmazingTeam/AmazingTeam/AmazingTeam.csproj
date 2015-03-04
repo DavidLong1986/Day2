@@ -57,10 +57,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\PublishProfiles\AmazingTest - FTP %282%29.pubxml" />
-    <None Include="Properties\PublishProfiles\AmazingTest - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\AmazingTest - Web Deploy %282%29.pubxml" />
-    <None Include="Properties\PublishProfiles\AmazingTest - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\AmazingTest.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -81,7 +77,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="PresentationLayer\AboutUs.aspx" />
-    <Content Include="PresentationLayer\AddUpdateDelete.aspx" />
+    <Content Include="PresentationLayer\AddUpdateDeleteMenu.aspx" />
     <Content Include="PresentationLayer\Authenticate.aspx" />
     <Content Include="PresentationLayer\C2.Master" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
@@ -102,7 +98,6 @@
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\npm.js" />
     <Content Include="Web.config" />
-    <Content Include="WebForm1.aspx" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
   </ItemGroup>
   <ItemGroup>
@@ -123,12 +118,12 @@
     <Compile Include="PresentationLayer\AboutUs.aspx.designer.cs">
       <DependentUpon>AboutUs.aspx</DependentUpon>
     </Compile>
-    <Compile Include="PresentationLayer\AddUpdateDelete.aspx.cs">
-      <DependentUpon>AddUpdateDelete.aspx</DependentUpon>
+    <Compile Include="PresentationLayer\AddUpdateDeleteMenu.aspx.cs">
+      <DependentUpon>AddUpdateDeleteMenu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="PresentationLayer\AddUpdateDelete.aspx.designer.cs">
-      <DependentUpon>AddUpdateDelete.aspx</DependentUpon>
+    <Compile Include="PresentationLayer\AddUpdateDeleteMenu.aspx.designer.cs">
+      <DependentUpon>AddUpdateDeleteMenu.aspx</DependentUpon>
     </Compile>
     <Compile Include="PresentationLayer\Authenticate.aspx.cs">
       <DependentUpon>Authenticate.aspx</DependentUpon>
@@ -215,13 +210,6 @@
       <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

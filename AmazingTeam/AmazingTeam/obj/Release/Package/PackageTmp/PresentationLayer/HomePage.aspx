@@ -10,31 +10,31 @@
     </ol>
     <div class="carousel-inner">
         <div class="item active">
-            <img src="http://placehold.it/900x500/777777&text=First+slide" alt="First slide">
+            <img src="https://scontent-sea.xx.fbcdn.net/hphotos-xap1/t31.0-8/11051937_1039682316046511_7801753993608171767_o.jpg" alt="First slide">
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>Example headline.</h1>
-                    <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
+                    <h1>Platters</h1>
+                    <p>Party platters are available in two sizes and can be customized based on your preferences.</p>
                     
                 </div>
             </div>
         </div>
         <div class="item">
-            <img src="http://placehold.it/900x500/666666&text=Second+slide" alt="Second slide">
+            <img src="https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-xap1/t31.0-8/10838248_1039682322713177_9189293895910908934_o.jpg" alt="Second slide">
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>Another example headline.</h1>
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <h1>Ingredients</h1>
+                    <p>These are just a few of the many quality ingredients used in making our products.</p>
                     
                 </div>
             </div>
         </div>
         <div class="item">
-            <img src="http://placehold.it/900x500/555555&text=Third+slide" alt="Third slide">
+            <img src="https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-xpf1/t31.0-8/10985428_1039682326046510_393023468666982059_o.jpg" alt="Third slide">
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>One more for good measure.</h1>
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <h1>Nuts n’more</h1>
+                    <p>Pecans, peanuts, semi-sweet chocolate chips and dates to name a few.</p>
                 </div>
             </div>
         </div>
@@ -56,18 +56,14 @@
 
     <!-- Three columns of text below the carousel -->
     <div class="row">
-        <div class="col-lg-6">
-            <img class="img-circle" src="http://coolblackppt.com/wp-content/uploads/2013/08/Smiley-face-background-1280x1024-pixels-wallpapers-tagged-cute-fun-140x140.jpg" alt="Generic placeholder image">
-            <h2>Heading</h2>
-            <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+        <div class="col-lg-12">
+            <img class="img-circle" src="https://scontent-sea.xx.fbcdn.net/hphotos-xpf1/v/t1.0-9/10994427_1039847326030010_7557293848522850423_n.jpg?oh=a982c5f1e9b0ddf5e07b4bc1426b23a0&oe=557BAD9F" alt="Generic placeholder image">
+            <h2>Coming Soon</h2>
+                                       
+            <p>Looking forward to bringing a little taste of my home into yours!</p>
         
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-6">
-           <a href="https://www.facebook.com/pages/C2-Desserts-nmore/778029785613719"><img class="img-circle" src="http://www.adobe.com/digitalimag/consumer/partneroffers/photos/images/facebook_140x140.jpg" alt="Generic placeholder image"></a>
-            <h2>Heading</h2>
-            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-        </div><!-- /.col-lg-4 -->
-    </div><!-- /.row -->
+        </div>
+    </div>
 
 
 

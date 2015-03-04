@@ -13,5 +13,22 @@ namespace AmazingTeam.PresentationLayer
         {
 
         }
+
+        protected void submit_Click(object sender, EventArgs e)
+        {
+            AmazingTeam.BusinessLayer.BusinessLayer Controller = new AmazingTeam.BusinessLayer.BusinessLayer();
+
+            try
+            {
+
+                Controller.AddCustomerEnquries(TypeOfQuestion.SelectedValue, InputName.Text, InputEmail.Text, InputMessage.Text);
+
+                MessageLabel.Text = "Your Enquiry has been submitted";
+            }
+            catch (Exception ex)
+            {
+                MessageLabel.Text = ex.Message;
+            }
+        }
     }
 }

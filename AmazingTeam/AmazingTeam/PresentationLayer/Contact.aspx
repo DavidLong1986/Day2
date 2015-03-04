@@ -9,15 +9,28 @@
     <!--End of Jumbotron -->
 
 <div class="control-label col-md-offset-3 col-md-6 col-md-offset-3">
-    <h2>Alice in Wonderland, part dos</h2>
-    <p>'You ought to be ashamed of yourself for asking such a simple question,' added the Gryphon; and then they both sat silent and looked at poor Alice, who felt ready to sink into the earth. At last the Gryphon said to the Mock Turtle, 'Drive on, old fellow! Don't be all day about it!' and he went on in these words:
-    'Yes, we went to school in the sea, though you mayn't believe it—'
-    'I never said I didn't!' interrupted Alice.
-    'You did,' said the Mock Turtle.</p>
-    <p>Wix.com provides an easy-to-use online platform where you can create and publish your own website. Enjoy powerful drag & drop editing tools & customizable website designs.</p>
+    
+
+<h2>Owner</h2>
+<p><b>Name:</b> Cori Pucci</p>
+<p><b>Email:</b> c2dessertsnmore@gmail.com</p>
+<p><b>Phone:</b> 780-907-0956</p>
+<p><b>Serving:</b> Edmonton and Area</p>
+
+    <p>Place your order a minimum of 48 hours prior to required date. If order is large may require a minimum of a week’s notice. Please send an inquiry for large orders so proper arrangements and timelines can be made.</p>
+    <p>Looking forward to filling your order and tummies soon!</p>
+
     <div>
-        <span class="badge badge-success" style="color:deeppink">Posted 2012-08-02 20:47:04</span>
+        <span class="badge badge-success" style="color:deeppink">Posted 2015-03-03 10:07:03</span>
     </div> 
     <hr>
+    <div class="row">
+        <div class="col-lg-12">
+           <a href="https://www.facebook.com/pages/C2-Desserts-nmore/1032000220148054"><img class="img-circle" src="http://www.adobe.com/digitalimag/consumer/partneroffers/photos/images/facebook_140x140.jpg" alt="Generic placeholder image"></a>
+            <p>Follow C2 Desserts n' more on Facebook</p>
+            <p style="color:red">Click Here!</p>
+        </div>
+    </div>
+    <br />
 </div>
 </asp:Content>

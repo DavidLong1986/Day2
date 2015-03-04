@@ -19,40 +19,34 @@ namespace AmazingTeam.BusinessLayer
             return AmazingTeam.DataAccessLayer.Owner.LookupUserIDPassword (UserID, Password, Respond);
         }
         //Owner----------------------------------------------------------------------------------------
-        public bool AddProduct(string ProductNames, string CategoryIDs, string QuantityPerUnits, string UnitPrices, string UnitsinStock, string UnitsonOrder)
+        public bool AddProduct(string ProductNames, string CategoryIDs, string QuantityPerUnits, string UnitPrices, string UnitsinStock, string UnitsonOrder, string ProductDescription)
         {
             bool Success = false;
-            Success = AmazingTeam.DataAccessLayer.Owner.AddProduct(ProductNames, CategoryIDs, QuantityPerUnits, UnitPrices, UnitsinStock, UnitsonOrder);
+            Success = AmazingTeam.DataAccessLayer.Owner.AddProduct(ProductNames, CategoryIDs, QuantityPerUnits, UnitPrices, UnitsinStock, UnitsonOrder, ProductDescription);
             return Success;
         }
-
         public DataSet FindProduct(string ProductID)
         {
             DataSet ProductDataSet = new DataSet();
             ProductDataSet = AmazingTeam.DataAccessLayer.Owner.FindProducts(ProductID);
             return ProductDataSet;
         }
-
-        public bool UpdateProduct(string ProductIDs, string ProductNames, string CategoryIDs, string QuantityPerUnits, string UnitPrices, string UnitsinStock, string UnitsonOrder)
+        public bool UpdateProduct(string ProductIDs, string ProductNames, string CategoryIDs, string QuantityPerUnits, string UnitPrices, string UnitsinStock, string UnitsonOrder, string ProductDescription)
         {
             bool Success = false;
-            Success = AmazingTeam.DataAccessLayer.Owner.UpdateProduct(ProductIDs, ProductNames, CategoryIDs, QuantityPerUnits, UnitPrices, UnitsinStock, UnitsonOrder);
+            Success = AmazingTeam.DataAccessLayer.Owner.UpdateProduct(ProductIDs, ProductNames, CategoryIDs, QuantityPerUnits, UnitPrices, UnitsinStock, UnitsonOrder, ProductDescription);
             return Success;
         }
-
         public bool DeleteProduct(string ProductID)
         {
             bool Success = false;
             Success = AmazingTeam.DataAccessLayer.Owner.DeleteProduct(ProductID);
             return Success;
         }
-        //Customer----------------------------------------------------------------------------------------
-
-        //public bool AddCustomerOrder(string CustomerEmailID, string CustomerFirstName, string CustomerLastName, string paid_ItemId_1, string paid_ItemId_2, string paid_ItemId_3, string paid_ItemId_4, string paid_ItemId_5, string paid_ItemId_6, string paid_ItemId_7, string paid_ItemId_8, string paid_ItemId_9, string paid_ItemId_10, string OwnerTranscationID, string pay_date)
-        //{
-        //    bool Success = false;
-        //    Success = AmazingTeam.DataAccessLayer.Customer.AddCustomerOrder(CustomerEmailID, CustomerFirstName, CustomerLastName, paid_ItemId_1, paid_ItemId_2, paid_ItemId_3, paid_ItemId_4, paid_ItemId_5, paid_ItemId_6, paid_ItemId_7, paid_ItemId_8, paid_ItemId_9, paid_ItemId_10, OwnerTranscationID, pay_date);
-        //    return Success;
-        //}
+        //-----------------------Customer Enquire------------------------
+        public void AddCustomerEnquries(string TypeOfQuestion, string Name, string Email, string Message)
+        {
+            AmazingTeam.DataAccessLayer.Customer.AddCustomerEnquries(TypeOfQuestion, Name, Email, Message);
+        }
     }
 }
