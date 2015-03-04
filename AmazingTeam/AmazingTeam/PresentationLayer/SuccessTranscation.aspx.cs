@@ -104,6 +104,8 @@ namespace AmazingTeam.PresentationLayer
                 string paid_Item_8 = these_argies["item_name8"];
                 string paid_Item_9 = these_argies["item_name9"];
                 string paid_Item_10 = these_argies["item_name10"];
+                string paid_Item_11 = these_argies["item_name11"];
+                string paid_Item_12 = these_argies["item_name12"];
 
                 //Item ID
                 string paid_ItemId_1 = these_argies["item_number1"];
@@ -116,6 +118,8 @@ namespace AmazingTeam.PresentationLayer
                 string paid_ItemId_8 = these_argies["item_number8"];
                 string paid_ItemId_9 = these_argies["item_number9"];
                 string paid_ItemId_10 = these_argies["item_number10"];
+                string paid_ItemId_11 = these_argies["item_number11"];
+                string paid_ItemId_12 = these_argies["item_number12"];
                 // For Quantity 
                 string paid_Quantity_1 = these_argies["quantity1"];
                 string paid_Quantity_2 = these_argies["quantity2"];
@@ -127,6 +131,8 @@ namespace AmazingTeam.PresentationLayer
                 string paid_Quantity_8 = these_argies["quantity8"];
                 string paid_Quantity_9 = these_argies["quantity9"];
                 string paid_Quantity_10 = these_argies["quantity10"];
+                string paid_Quantity_11 = these_argies["quantity11"];
+                string paid_Quantity_12 = these_argies["quantity12"];
 
                 string paid_txn_id = these_argies["txn_id"];
                 string paid_mc_gross = these_argies["mc_gross"];
@@ -146,7 +152,7 @@ namespace AmazingTeam.PresentationLayer
 
 
 
-            string List_Item = "Items are: " + paid_Item_1 + " = " + paid_Quantity_1 + ", " + paid_Item_2 + " = " + paid_Quantity_2 + ", " + paid_Item_3 + " = " + paid_Quantity_3 + ", " + paid_Item_4 + " = " + paid_Quantity_4 + ", " + paid_Item_5 + " = " + paid_Quantity_5 + ", " + paid_Item_6 + " = " + paid_Quantity_6 + ", " + paid_Item_7 + " = " + paid_Quantity_7 + ", " + paid_Item_8 + " = " + paid_Quantity_8 + ", " + paid_Item_9 + " = " + paid_Quantity_9 + ", " + paid_Item_10 + " = " + paid_Quantity_10;
+            string List_Item = "Items are: " + paid_Item_1 + " = " + paid_Quantity_1 + ", " + paid_Item_2 + " = " + paid_Quantity_2 + ", " + paid_Item_3 + " = " + paid_Quantity_3 + ", " + paid_Item_4 + " = " + paid_Quantity_4 + ", " + paid_Item_5 + " = " + paid_Quantity_5 + ", " + paid_Item_6 + " = " + paid_Quantity_6 + ", " + paid_Item_7 + " = " + paid_Quantity_7 + ", " + paid_Item_8 + " = " + paid_Quantity_8 + ", " + paid_Item_9 + " = " + paid_Quantity_9 + ", " + paid_Item_10 + " = " + paid_Quantity_10 +", " + paid_Item_11 + " = " + paid_Quantity_11 + ", " + paid_Item_12 + " = " + paid_Quantity_12;
 
 
 
@@ -177,6 +183,8 @@ namespace AmazingTeam.PresentationLayer
                         commamd.Parameters.Add("@ProductIDEight", SqlDbType.Int).Value = Convert.ToInt32(paid_ItemId_8);
                         commamd.Parameters.Add("@ProductIDNine", SqlDbType.Int).Value = Convert.ToInt32(paid_ItemId_9);
                         commamd.Parameters.Add("@ProductIDTen", SqlDbType.Int).Value = Convert.ToInt32(paid_ItemId_10);
+                        commamd.Parameters.Add("@ProductIDEleven", SqlDbType.Int).Value = Convert.ToInt32(paid_ItemId_11);
+                        commamd.Parameters.Add("@ProductIDTwelve", SqlDbType.Int).Value = Convert.ToInt32(paid_ItemId_12);
 
 
                         commamd.Parameters.Add("@TranscationID", SqlDbType.NVarChar).Value = paid_txn_id;

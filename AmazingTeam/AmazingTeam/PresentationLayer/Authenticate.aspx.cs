@@ -43,7 +43,7 @@ namespace AmazingTeam.PresentationLayer
                 }
                 else
                 {
-                    Server.Transfer("~/PresentationLayer/AddUpdateDeleteMenu.aspx");
+                    Server.Transfer("~/PresentationLayer/AddFindUpdateDeleteMenu.aspx");
                 }
 
             }

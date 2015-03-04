@@ -71,9 +71,6 @@
         <!--the Start of Menu -->
         <div class="container">
 
-
-
-
                 <form target="paypal" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" >
                 <input type="hidden" name="cmd" value="_s-xclick">
                 <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHFwYJKoZIhvcNAQcEoIIHCDCCBwQCAQExggE6MIIBNgIBADCBnjCBmDELMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExETAPBgNVBAcTCFNhbiBKb3NlMRUwEwYDVQQKEwxQYXlQYWwsIEluYy4xFjAUBgNVBAsUDXNhbmRib3hfY2VydHMxFDASBgNVBAMUC3NhbmRib3hfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tAgEAMA0GCSqGSIb3DQEBAQUABIGAZN7/v6Xx5xn4oVb/vTlxYDKGaaPAzOkpV7S3cqKHiHaDgzfsN1+c8FE+V88Ip4KNUuLg+G6pYmVCBpBxCXlt5Zo5leFXuGvfFBgQNYtk2gOzDg91S1JFvIx/oHOgxvMcoB2YxXxdJpPIbC8xzeSNltUVoz0vGWaCh8iSKV1x/egxCzAJBgUrDgMCGgUAMGMGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQIVnrzm+iGznKAQM2Dq0MyXZsf+4ENc2b2fhx4ESE6qST1OH+3NDTb0+CiypQC9m63iTpDIV6QRYeJYqbVxYFjGbaKzqtJ/ps/dVygggOlMIIDoTCCAwqgAwIBAgIBADANBgkqhkiG9w0BAQUFADCBmDELMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExETAPBgNVBAcTCFNhbiBKb3NlMRUwEwYDVQQKEwxQYXlQYWwsIEluYy4xFjAUBgNVBAsUDXNhbmRib3hfY2VydHMxFDASBgNVBAMUC3NhbmRib3hfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tMB4XDTA0MDQxOTA3MDI1NFoXDTM1MDQxOTA3MDI1NFowgZgxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMREwDwYDVQQHEwhTYW4gSm9zZTEVMBMGA1UEChMMUGF5UGFsLCBJbmMuMRYwFAYDVQQLFA1zYW5kYm94X2NlcnRzMRQwEgYDVQQDFAtzYW5kYm94X2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAt5bjv/0N0qN3TiBL+1+L/EjpO1jeqPaJC1fDi+cC6t6tTbQ55Od4poT8xjSzNH5S48iHdZh0C7EqfE1MPCc2coJqCSpDqxmOrO+9QXsjHWAnx6sb6foHHpsPm7WgQyUmDsNwTWT3OGR398ERmBzzcoL5owf3zBSpRP0NlTWonPMCAwEAAaOB+DCB9TAdBgNVHQ4EFgQUgy4i2asqiC1rp5Ms81Dx8nfVqdIwgcUGA1UdIwSBvTCBuoAUgy4i2asqiC1rp5Ms81Dx8nfVqdKhgZ6kgZswgZgxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMREwDwYDVQQHEwhTYW4gSm9zZTEVMBMGA1UEChMMUGF5UGFsLCBJbmMuMRYwFAYDVQQLFA1zYW5kYm94X2NlcnRzMRQwEgYDVQQDFAtzYW5kYm94X2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbYIBADAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBBQUAA4GBAFc288DYGX+GX2+WP/dwdXwficf+rlG+0V9GBPJZYKZJQ069W/ZRkUuWFQ+Opd2yhPpneGezmw3aU222CGrdKhOrBJRRcpoO3FjHHmXWkqgbQqDWdG7S+/l8n1QfDPp+jpULOrcnGEUY41ImjZJTylbJQ1b5PBBjGiP0PpK48cdFMYIBpDCCAaACAQEwgZ4wgZgxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMREwDwYDVQQHEwhTYW4gSm9zZTEVMBMGA1UEChMMUGF5UGFsLCBJbmMuMRYwFAYDVQQLFA1zYW5kYm94X2NlcnRzMRQwEgYDVQQDFAtzYW5kYm94X2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbQIBADAJBgUrDgMCGgUAoF0wGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEHATAcBgkqhkiG9w0BCQUxDxcNMTUwMzAzMDcwOTA3WjAjBgkqhkiG9w0BCQQxFgQUO+4S06Ay08zprcAr+zNhUsvV8zMwDQYJKoZIhvcNAQEBBQAEgYBQwcmPFfJ2pn910NXNEZ4JFjJ1OprWNShmqflI6pu6veUlOJ1y5n/Cwjm3A1onOvhAx/8wSi95K7jr6bnSIZ+nZwkzajfdPKLqD4FSOeFYTU4j1l6W+DK3IrReou7XY20JMaM2twVt+0j1WnIPGA26tciNdgMXEgrSLhS1I+ItuQ==-----END PKCS7-----
@@ -107,6 +104,10 @@
                             <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
                             <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
                             </form>
+
+
+                         
+
 
                         </div>
                     </div>
@@ -243,19 +244,21 @@
 
 
 
-                            <form target="paypal" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
-                            <input type="hidden" name="cmd" value="_s-xclick">
-                            <input type="hidden" name="hosted_button_id" value="DAGDWL9LUFDTW">
-                            <table>
-                            <tr><td><input type="hidden" name="on0" value="Slab or Pre-cut?">Slab or Pre-cut?</td></tr><tr><td><select name="os0">
-	                            <option value="9" x 15" slab">9" x 15" slab $25.00 CAD</option>
-	                            <option value="Pre-cut">Pre-cut $30.00 CAD</option>
-                            </select> </td></tr>
-                            </table>
-                            <input type="hidden" name="currency_code" value="CAD">
-                            <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-                            <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-                            </form>
+                        <form target="paypal" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+                        <input type="hidden" name="cmd" value="_s-xclick">
+                        <input type="hidden" name="hosted_button_id" value="3N9A9HC5D3FUL">
+                        <table>
+                        <tr><td><input type="hidden" name="on0" value="Pick the size">Pick the size</td></tr><tr><td><select name="os0">
+	                        <option value="9  x 15 slab">9  x 15 slab $25.00 CAD</option>
+	                        <option value="Pre-cut">Pre-cut $30.00 CAD</option>
+                        </select> </td></tr>
+                        </table>
+                        <input type="hidden" name="currency_code" value="CAD">
+                        <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                        <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                        </form>
+
+
 
 
 
@@ -450,14 +453,16 @@
                             <input type="hidden" name="hosted_button_id" value="WMSCS9V857622">
                             <table>
                             <tr><td><input type="hidden" name="on0" value="What size?">What size?</td></tr><tr><td><select name="os0">
-	                            <option value="9" x 9" for">9" x 9" for $20.00 CAD</option>
-	                            <option value="9" x 15" for">9" x 15" for $45.00 CAD</option>
+	                            <option value="9 x 9 for">9 x 9 for $20.00 CAD</option>
+	                            <option value="9 x 15 for">9 x 15 for $45.00 CAD</option>
                             </select> </td></tr>
                             </table>
                             <input type="hidden" name="currency_code" value="CAD">
                             <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
                             <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
                             </form>
+
+
 
                         </div>
                     </div>
@@ -484,14 +489,15 @@
                             <input type="hidden" name="hosted_button_id" value="L8QNYBTRTP3W2">
                             <table>
                             <tr><td><input type="hidden" name="on0" value="What size?">What size?</td></tr><tr><td><select name="os0">
-	                            <option value="9" x 9" for">9" x 9" for $20.00 CAD</option>
-	                            <option value="9" x 15" for">9" x 15" for $45.00 CAD</option>
+	                            <option value="9 x 9 for">9 x 9 for $20.00 CAD</option>
+	                            <option value="9 x 15 for">9 x 15 for $45.00 CAD</option>
                             </select> </td></tr>
                             </table>
                             <input type="hidden" name="currency_code" value="CAD">
                             <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
                             <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
                             </form>
+
 
                         </div>
                     </div>
@@ -518,14 +524,15 @@
                             <input type="hidden" name="hosted_button_id" value="X5XWK9WGP9GFS">
                             <table>
                             <tr><td><input type="hidden" name="on0" value="What size?">What size?</td></tr><tr><td><select name="os0">
-	                            <option value="9" x 9" for">9" x 9" for $20.00 CAD</option>
-	                            <option value="9" x 15" for">9" x 15" for $45.00 CAD</option>
+	                            <option value="9 x 9 for">9 x 9 for $20.00 CAD</option>
+	                            <option value="9 x 15 for">9 x 15 for $45.00 CAD</option>
                             </select> </td></tr>
                             </table>
                             <input type="hidden" name="currency_code" value="CAD">
                             <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
                             <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
                             </form>
+
 
                         </div>
                     </div>
