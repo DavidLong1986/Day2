@@ -260,6 +260,42 @@ namespace AmazingTeam.DataAccessLayer
             }
             return success;
         }
+        public static void VerifedCustomerOrderData(string user_email, string payer_fristName, string payer_LastName, string paid_ItemId_1, string paid_ItemId_2, string paid_ItemId_3, string paid_ItemId_4, string paid_ItemId_5, string paid_ItemId_6, string paid_ItemId_7, string paid_ItemId_8, string paid_ItemId_9, string paid_ItemId_10, string paid_ItemId_11, string paid_ItemId_12, string paid_txn_id, DateTime outputDateTime)
+        {
+
+            using (SqlConnection myConnection = new SqlConnection(StrConn))
+            {
+
+                SqlCommand commamd = new SqlCommand("AddCustomerOrder", myConnection);
+                commamd.CommandType = CommandType.StoredProcedure;
+
+                commamd.Parameters.Add("@CustomerID", SqlDbType.NVarChar).Value = user_email;
+                commamd.Parameters.Add("@CustomerFirstName", SqlDbType.NVarChar).Value = payer_fristName;
+                commamd.Parameters.Add("@CustomerLastName", SqlDbType.NVarChar).Value = payer_LastName;
+
+
+                commamd.Parameters.Add("@ProductIDOne", SqlDbType.Int).Value = Convert.ToInt32(paid_ItemId_1);
+                commamd.Parameters.Add("@ProductIDTwo", SqlDbType.Int).Value = Convert.ToInt32(paid_ItemId_2);
+                commamd.Parameters.Add("@ProductIDThree", SqlDbType.Int).Value = Convert.ToInt32(paid_ItemId_3);
+                commamd.Parameters.Add("@ProductIDFour", SqlDbType.Int).Value = Convert.ToInt32(paid_ItemId_4);
+                commamd.Parameters.Add("@ProductIDFive", SqlDbType.Int).Value = Convert.ToInt32(paid_ItemId_5);
+                commamd.Parameters.Add("@ProductIDSix", SqlDbType.Int).Value = Convert.ToInt32(paid_ItemId_6);
+                commamd.Parameters.Add("@ProductIDSeven", SqlDbType.Int).Value = Convert.ToInt32(paid_ItemId_7);
+                commamd.Parameters.Add("@ProductIDEight", SqlDbType.Int).Value = Convert.ToInt32(paid_ItemId_8);
+                commamd.Parameters.Add("@ProductIDNine", SqlDbType.Int).Value = Convert.ToInt32(paid_ItemId_9);
+                commamd.Parameters.Add("@ProductIDTen", SqlDbType.Int).Value = Convert.ToInt32(paid_ItemId_10);
+                commamd.Parameters.Add("@ProductIDEleven", SqlDbType.Int).Value = Convert.ToInt32(paid_ItemId_11);
+                commamd.Parameters.Add("@ProductIDTwelve", SqlDbType.Int).Value = Convert.ToInt32(paid_ItemId_12);
+
+
+                commamd.Parameters.Add("@TranscationID", SqlDbType.NVarChar).Value = paid_txn_id;
+                commamd.Parameters.Add("@OrderDate", SqlDbType.DateTime).Value = Convert.ToDateTime(outputDateTime);
+
+                commamd.Connection.Open();
+                commamd.ExecuteNonQuery();
+            }
+
+        }
 
     }
 }

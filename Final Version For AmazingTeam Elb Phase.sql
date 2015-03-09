@@ -387,15 +387,6 @@ execute AddProduct
 @Description = 'Pastry crust, butter, brown sugar, corn syrup, egg, vanilla, white vinegar, raisins and pecans'
 go
 execute AddProduct
-@ProductName = 'Butter-me-up Tarts',
-@CategoryID =  1,
-@Quantity= 12,
-@UnitPrice = 15.00,
-@UnitsInStock = 90,
-@UnitsOnOrder = 0,
-@Description = 'Pastry crust, butter, brown sugar, corn syrup, egg, vanilla, white vinegar, raisins and pecans'
-go
-execute AddProduct
 @ProductName = 'Chocolate Covered Blueberries',
 @CategoryID =  1,
 @Quantity= 1,
@@ -405,28 +396,10 @@ execute AddProduct
 @Description = 'Callebaut chocolate and fresh blueberries'
 go
 execute AddProduct
-@ProductName = 'Chocolate Covered Blueberries',
-@CategoryID =  1,
-@Quantity= 12,
-@UnitPrice = 15.00,
-@UnitsInStock = 40,
-@UnitsOnOrder = 0,
-@Description = 'Callebaut chocolate and fresh blueberries'
-go
-execute AddProduct
 @ProductName = 'Chocolate Covered Strawberries',
 @CategoryID =  1,
 @Quantity= 1,
 @UnitPrice = 1.50,
-@UnitsInStock = 90,
-@UnitsOnOrder = 0,
-@Description = 'Callebaut chocolate and fresh strawberries'
-go
-execute AddProduct
-@ProductName = 'Chocolate Covered Strawberries',
-@CategoryID =  1,
-@Quantity= 1,
-@UnitPrice = 15.00,
 @UnitsInStock = 90,
 @UnitsOnOrder = 0,
 @Description = 'Callebaut chocolate and fresh strawberries'
@@ -441,15 +414,6 @@ execute AddProduct
 @Description = 'Semi-sweet chocolate, corn syrup, peanut butter, peanuts and rice krispies cereal'
 go
 execute AddProduct
-@ProductName = 'Eatmore Please',
-@CategoryID =  1,
-@Quantity= 1,
-@UnitPrice = 30.00,
-@UnitsInStock = 90,
-@UnitsOnOrder = 0,
-@Description = 'Semi-sweet chocolate, corn syrup, peanut butter, peanuts and rice krispies cereal'
-go
-execute AddProduct
 @ProductName = 'Heavenly Haystacks',
 @CategoryID =  1,
 @Quantity= 1,
@@ -459,28 +423,10 @@ execute AddProduct
 @Description = 'Callebaut chocolate chips, Reese peanut butter chips, peanuts and chow mein noodles'
 go
 execute AddProduct
-@ProductName = 'Heavenly Haystacks',
-@CategoryID =  1,
-@Quantity= 12,
-@UnitPrice = 15.00,
-@UnitsInStock = 50,
-@UnitsOnOrder = 0,
-@Description = 'Callebaut chocolate chips, Reese peanut butter chips, peanuts and chow mein noodles'
-go
-execute AddProduct
 @ProductName = 'Oooh Henry Balls',
 @CategoryID =  1,
 @Quantity= 1,
 @UnitPrice = 1.50,
-@UnitsInStock = 90,
-@UnitsOnOrder = 0,
-@Description = 'Peanut butter, dates, peanuts, icing sugar, butter, semi-sweet chocolate'
-go
-execute AddProduct
-@ProductName = 'Oooh Henry Balls',
-@CategoryID =  1,
-@Quantity= 1,
-@UnitPrice = 15.00,
 @UnitsInStock = 90,
 @UnitsOnOrder = 0,
 @Description = 'Peanut butter, dates, peanuts, icing sugar, butter, semi-sweet chocolate'
@@ -495,15 +441,6 @@ execute AddProduct
 @Description = 'Pretzels, caramel and Callebaut chocolate'
 go
 execute AddProduct
-@ProductName = 'Pretzel Bites',
-@CategoryID =  1,
-@Quantity= 12,
-@UnitPrice = 5.00,
-@UnitsInStock = 100,
-@UnitsOnOrder = 0,
-@Description = 'Pretzels, caramel and Callebaut chocolate'
-go
-execute AddProduct
 @ProductName = 'Turtle Cups',
 @CategoryID =  1,
 @Quantity= 1,
@@ -511,66 +448,12 @@ execute AddProduct
 @UnitsInStock = 90,
 @UnitsOnOrder = 10,
 @Description = 'cupcake'
-go
-execute AddProduct
-@ProductName = 'Turtle Cups',
-@CategoryID =  1,
-@Quantity= 1,
-@UnitPrice = 2.05,
-@UnitsInStock = 90,
-@UnitsOnOrder = 10,
-@Description = 'cupcake'
-go
-execute AddProduct
-@ProductName = 'Turtle Cups',
-@CategoryID =  1,
-@Quantity= 1,
-@UnitPrice = 2.50,
-@UnitsInStock = 30,
-@UnitsOnOrder = 0,
-@Description = 'Small-Callebaut chocolate, pecans and caramel.'
-go
-execute AddProduct
-@ProductName = 'Turtle Cups',
-@CategoryID =  1,
-@Quantity= 12,
-@UnitPrice = 25.00,
-@UnitsInStock = 30,
-@UnitsOnOrder = 0,
-@Description = 'Small-Callebaut chocolate, pecans and caramel.'
-go
-execute AddProduct
-@ProductName = 'Turtle Cups',
-@CategoryID =  1,
-@Quantity= 1,
-@UnitPrice = 4.50,
-@UnitsInStock = 30,
-@UnitsOnOrder = 0,
-@Description = 'Large-Callebaut chocolate, pecans and caramel.'
-go
-execute AddProduct
-@ProductName = 'Turtle Cups',
-@CategoryID =  1,
-@Quantity= 12,
-@UnitPrice = 50.00,
-@UnitsInStock = 30,
-@UnitsOnOrder = 0,
-@Description = 'Large-Callebaut chocolate, pecans and caramel.'
 go
 execute AddProduct
 @ProductName = 'Yum Yum – Blueberry',
 @CategoryID =  1,
 @Quantity= 1,
 @UnitPrice = 20.00,
-@UnitsInStock = 10,
-@UnitsOnOrder = 0,
-@Description = '9x9-Graham cracker crumbs, butter, Philadelphia cream cheese, whipping cream, dream whip and blueberry pie filling'
-go
-execute AddProduct
-@ProductName = 'Yum Yum – Blueberry',
-@CategoryID =  1,
-@Quantity= 1,
-@UnitPrice = 50.00,
 @UnitsInStock = 10,
 @UnitsOnOrder = 0,
 @Description = '9x9-Graham cracker crumbs, butter, Philadelphia cream cheese, whipping cream, dream whip and blueberry pie filling'
@@ -584,15 +467,7 @@ execute AddProduct
 @UnitsOnOrder = 0,
 @Description = '9x9-Graham cracker crumbs, butter, Philadelphia cream cheese, whipping cream, dream whip and Cherry pie filling'
 go
-execute AddProduct
-@ProductName = 'Yum Yum - Cherry',
-@CategoryID =  1,
-@Quantity= 1,
-@UnitPrice = 50.00,
-@UnitsInStock = 10,
-@UnitsOnOrder = 0,
-@Description = '9x9-Graham cracker crumbs, butter, Philadelphia cream cheese, whipping cream, dream whip and Cherry pie filling'
-go
+----------------Demo Only!! if need to add new button and assoication from PayPal do Peach as the ID is 12--------------------
 execute AddProduct
 @ProductName = 'Yum Yum - Peach',
 @CategoryID =  1,
@@ -602,15 +477,7 @@ execute AddProduct
 @UnitsOnOrder = 0,
 @Description = '9x9-Graham cracker crumbs, butter, Philadelphia cream cheese, whipping cream, dream whip and Peach pie filling'
 go
-execute AddProduct
-@ProductName = 'Yum Yum - Peach',
-@CategoryID =  1,
-@Quantity= 1,
-@UnitPrice = 50.00,
-@UnitsInStock = 10,
-@UnitsOnOrder = 0,
-@Description = '9x9-Graham cracker crumbs, butter, Philadelphia cream cheese, whipping cream, dream whip and Peach pie filling'
-go
+----No Need for second product because PayPal ID needs to be the same---------
 ----------------------------------------------------------------
 --execute UpdateProducts
 --@ProductName = 'cookie',

@@ -28,8 +28,10 @@ namespace AmazingTeam.PresentationLayer
 {
     public partial class SuccessTranscation : System.Web.UI.Page
     {
-        public const string StrConn = "Server=tcp:j5ldchdajd.database.windows.net,1433;Database=AmazingTeamDatabase;User ID=AmazingTeam@j5ldchdajd;Password=Baist3990?;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;";
-        
+       // public const string StrConn = "Server=tcp:j5ldchdajd.database.windows.net,1433;Database=AmazingTeamDatabase;User ID=AmazingTeam@j5ldchdajd;Password=Baist3990?;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;";
+
+        AmazingTeam.BusinessLayer.BusinessLayer Controller = new AmazingTeam.BusinessLayer.BusinessLayer();
+
         void Send_download_link(string from, string to, string subject, string body)
         {
             try
@@ -39,7 +41,7 @@ namespace AmazingTeam.PresentationLayer
                 client.Timeout = 10000;
                 client.DeliveryMethod = SmtpDeliveryMethod.Network;
                 client.UseDefaultCredentials = false;
-                client.Credentials = new NetworkCredential("davidlong1986@gmail.com", "Castlevania9826159st?");
+                client.Credentials = new NetworkCredential("amazingtestbaist3990@gmail.com", "Amazingtest3990?");
                 client.Send(from, to, subject, body);
 
             }
@@ -64,11 +66,7 @@ namespace AmazingTeam.PresentationLayer
             strRequest += "&cmd=_notify-validate";
             req.ContentLength = strRequest.Length;
 
-            //for proxy
-            //WebProxy proxy = new WebProxy(new Uri("http://url:port#"));
-            //req.Proxy = proxy;
-
-            //Send the request to PayPal and get the response
+            //Send the request to PayPal with sames message and get the response
             StreamWriter streamOut = new StreamWriter(req.GetRequestStream(), System.Text.Encoding.ASCII);
             streamOut.Write(strRequest);
             streamOut.Close();
@@ -78,12 +76,7 @@ namespace AmazingTeam.PresentationLayer
 
             if (strResponse == "VERIFIED")
             {
-                //check the payment_status is Completed
-                //check that txn_id has not been previously processed
-                //check that receiver_email is your Primary PayPal email
-                //check that payment_amount/payment_currency are correct
-                //process payment
-
+                
                 // pull the values passed on the initial message from PayPal
 
                 NameValueCollection these_argies = HttpUtility.ParseQueryString(strResponse_copy);
@@ -120,6 +113,7 @@ namespace AmazingTeam.PresentationLayer
                 string paid_ItemId_10 = these_argies["item_number10"];
                 string paid_ItemId_11 = these_argies["item_number11"];
                 string paid_ItemId_12 = these_argies["item_number12"];
+
                 // For Quantity 
                 string paid_Quantity_1 = these_argies["quantity1"];
                 string paid_Quantity_2 = these_argies["quantity2"];
@@ -158,41 +152,14 @@ namespace AmazingTeam.PresentationLayer
 
                 if (pay_stat.Equals("Completed"))
                 {
-                    Send_download_link("davidlong1986@gmail.com", "davidlong1986@gmail.com", "New order for " + payer_fristName + " " + payer_LastName, "order on " + pay_date + List_Item + " " + System.Environment.NewLine + "TxnId = " + paid_txn_id + " " + System.Environment.NewLine + "Gross = " + paid_mc_gross + " ");
+
+                    Send_download_link("amazingtestbaist3990@gmail.com", "amazingtestbaist3990@gmail.com", "There is new order " + payer_fristName + " " + payer_LastName, "order on " + pay_date + List_Item + " " + System.Environment.NewLine + "TxnId = " + paid_txn_id + " " + System.Environment.NewLine + "Gross = " + paid_mc_gross + " ");
 
                     //The reason why the Lister is not at the Business Layer is because that speed is need here
                     //Or else Paypal send another IPN a every second. 
-                    using (SqlConnection myConnection = new SqlConnection(StrConn))
-                    {
 
-                        SqlCommand commamd = new SqlCommand("AddCustomerOrder", myConnection);
-                        commamd.CommandType = CommandType.StoredProcedure;
+                    Controller.VerifedCustomerOrder(user_email, payer_fristName, payer_LastName, paid_ItemId_1, paid_ItemId_2, paid_ItemId_3, paid_ItemId_4, paid_ItemId_5, paid_ItemId_6, paid_ItemId_7, paid_ItemId_8, paid_ItemId_9, paid_ItemId_10, paid_ItemId_11, paid_ItemId_12, paid_txn_id,outputDateTime);
 
-                        commamd.Parameters.Add("@CustomerID", SqlDbType.NVarChar).Value = user_email;
-                        commamd.Parameters.Add("@CustomerFirstName", SqlDbType.NVarChar).Value = payer_fristName;
-                        commamd.Parameters.Add("@CustomerLastName", SqlDbType.NVarChar).Value = payer_LastName;
-
-
-                        commamd.Parameters.Add("@ProductIDOne", SqlDbType.Int).Value = Convert.ToInt32(paid_ItemId_1);
-                        commamd.Parameters.Add("@ProductIDTwo", SqlDbType.Int).Value = Convert.ToInt32(paid_ItemId_2);
-                        commamd.Parameters.Add("@ProductIDThree", SqlDbType.Int).Value = Convert.ToInt32(paid_ItemId_3);
-                        commamd.Parameters.Add("@ProductIDFour", SqlDbType.Int).Value = Convert.ToInt32(paid_ItemId_4);
-                        commamd.Parameters.Add("@ProductIDFive", SqlDbType.Int).Value = Convert.ToInt32(paid_ItemId_5);
-                        commamd.Parameters.Add("@ProductIDSix", SqlDbType.Int).Value = Convert.ToInt32(paid_ItemId_6);
-                        commamd.Parameters.Add("@ProductIDSeven", SqlDbType.Int).Value = Convert.ToInt32(paid_ItemId_7);
-                        commamd.Parameters.Add("@ProductIDEight", SqlDbType.Int).Value = Convert.ToInt32(paid_ItemId_8);
-                        commamd.Parameters.Add("@ProductIDNine", SqlDbType.Int).Value = Convert.ToInt32(paid_ItemId_9);
-                        commamd.Parameters.Add("@ProductIDTen", SqlDbType.Int).Value = Convert.ToInt32(paid_ItemId_10);
-                        commamd.Parameters.Add("@ProductIDEleven", SqlDbType.Int).Value = Convert.ToInt32(paid_ItemId_11);
-                        commamd.Parameters.Add("@ProductIDTwelve", SqlDbType.Int).Value = Convert.ToInt32(paid_ItemId_12);
-
-
-                        commamd.Parameters.Add("@TranscationID", SqlDbType.NVarChar).Value = paid_txn_id;
-                        commamd.Parameters.Add("@OrderDate", SqlDbType.DateTime).Value = Convert.ToDateTime(outputDateTime);
-
-                        commamd.Connection.Open();
-                        commamd.ExecuteNonQuery();
-                    }
                 }
             }
             else if (strResponse == "INVALID")

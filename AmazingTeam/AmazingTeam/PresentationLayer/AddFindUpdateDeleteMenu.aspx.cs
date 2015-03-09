@@ -41,7 +41,7 @@ namespace AmazingTeam.PresentationLayer
                 client.Timeout = 10000;
                 client.DeliveryMethod = SmtpDeliveryMethod.Network;
                 client.UseDefaultCredentials = false;
-                client.Credentials = new NetworkCredential("davidlong1986@gmail.com", "Castlevania9826159st?");
+                client.Credentials = new NetworkCredential("amazingtestbaist3990@gmail.com", "Amazingtest3990?");
                 client.Send(from, to, subject, body);
 
             }
@@ -127,10 +127,10 @@ namespace AmazingTeam.PresentationLayer
                 Message = "-Units in Stock must be Numeric"  + " " + System.Environment.NewLine + Message + " " + System.Environment.NewLine;
             }
 
-            int TestUnitPrices;
-            if (int.TryParse(UnitPrice.Text, out TestUnitPrices))
+            decimal TestUnitPrices;
+            if (decimal.TryParse(UnitPrice.Text, out TestUnitPrices))
             {
-                 UnitPrices = TestUnitPrices.ToString();
+                 UnitPrices = Math.Round(TestUnitPrices, 2).ToString();
             }
             else
             {
@@ -156,10 +156,10 @@ namespace AmazingTeam.PresentationLayer
             
                 if (Controller.AddProduct(ProductNames, CategoryIDs, Quantity, UnitPrices, UnitsinStock, UnitsonOrder, ProductDescription))
                 {
-                    MessageLine.Text = "Product was added successfully into Records and Email has been sent to developer!";
+                    MessageLine.Text = "Product was added successfully into email is sent with Paypal information for easy update!";
 
                     string List_Item = "ProductNames = " + ProductNames + " " + System.Environment.NewLine + "CategoryIDs = " + CategoryIDs + " " + System.Environment.NewLine + "Quantity = " + Quantity + " " + System.Environment.NewLine + "UnitPrices = " + UnitPrices + " " + System.Environment.NewLine + "UnitsinStock = " + UnitsinStock + " " + System.Environment.NewLine + "UnitsonOrder = " + UnitsonOrder;
-                    Send_download_link("davidlong1986@gmail.com", "davidlong1986@gmail.com", "C2: New Product Need to be added!", "These are the following variable and add new paypal button: " + System.Environment.NewLine + System.Environment.NewLine + List_Item + System.Environment.NewLine + System.Environment.NewLine + "Thank you");
+                    Send_download_link("amazingtestbaist3990@gmail.com", "amazingtestbaist3990@gmail.com", "C2: New Product to be added!", "These are the following variable and add new paypal button: " + System.Environment.NewLine + System.Environment.NewLine + List_Item + System.Environment.NewLine + System.Environment.NewLine + "Thank you");
 
                 }
                 else
@@ -195,7 +195,16 @@ namespace AmazingTeam.PresentationLayer
                     for (int index = 0; index <= Table.Columns.Count - 1; index++)
                     {
                         TableCell newcell = new TableCell();
-                        newcell.Text = row[index].ToString();
+
+                        decimal number;
+                        if (decimal.TryParse(row[index].ToString(), out number))
+                        {
+                            newcell.Text = Math.Round(number, 2).ToString();
+                        }
+                        else
+                        {
+                            newcell.Text = row[index].ToString();
+                        }
                         tblrow.Cells.Add(newcell);
                     }
                 }
@@ -283,10 +292,10 @@ namespace AmazingTeam.PresentationLayer
                 Message = "-Units in Stock must be Numeric"  + " " + System.Environment.NewLine + Message + " " + System.Environment.NewLine;
             }
 
-            int TestUnitPrices;
-            if (int.TryParse(UnitPrice.Text, out TestUnitPrices))
+            decimal TestUnitPrices;
+            if (decimal.TryParse(UnitPrice.Text, out TestUnitPrices))
             {
-                UnitPrices = TestUnitPrices.ToString();
+                UnitPrices = Math.Round(TestUnitPrices,2).ToString();
             }
             else
             {
@@ -312,10 +321,10 @@ namespace AmazingTeam.PresentationLayer
 
                 if (Controller.UpdateProduct(ProductIDs, ProductNames, CategoryIDs, Quantity, UnitPrices, UnitsinStock, UnitsonOrder, ProductDescription))
                 {
-                    MessageLine.Text = "Product is Updated successfully into Records and Email has been sent to developer!";
+                    MessageLine.Text = "Product is Updated successfully into records and email is sent with Paypal information for easy update!";
 
                     string List_Item = "ProductNames = " + ProductNames + " " + System.Environment.NewLine + "CategoryIDs = " + CategoryIDs + " " + System.Environment.NewLine + "Quantity = " + Quantity + " " + System.Environment.NewLine + "UnitPrices = " + UnitPrices + " " + System.Environment.NewLine + "UnitsinStock = " + UnitsinStock + " " + System.Environment.NewLine + "UnitsonOrder = " + UnitsonOrder;
-                    Send_download_link("davidlong1986@gmail.com", "davidlong1986@gmail.com", "C2: Update Product is Needed!", "These are the following variable and update paypal's button: " + System.Environment.NewLine + System.Environment.NewLine + List_Item + System.Environment.NewLine + System.Environment.NewLine + "Thank you");
+                    Send_download_link("amazingtestbaist3990@gmail.com", "amazingtestbaist3990@gmail.com", "C2: Update Product is Needed!", "These are the following variable and update paypal's button: " + System.Environment.NewLine + System.Environment.NewLine + List_Item + System.Environment.NewLine + System.Environment.NewLine + "Thank you");
                 }
                 else
                 {
@@ -333,10 +342,10 @@ namespace AmazingTeam.PresentationLayer
             if (Controller.DeleteProduct(ProductIDs))
             {
 
-                MessageLine.Text = "Product is Deleted successfully from Records and Email has been sent to developer!";
+                MessageLine.Text = "Product is Deleted successfully from records and email is sent with Paypal information for easy update!";
 
                 string List_Item = "ProductIDs = " + ProductIDs + " " + System.Environment.NewLine;
-                Send_download_link("davidlong1986@gmail.com", "davidlong1986@gmail.com", "C2: Delete Product!", "These are the following variable and delete paypal's button: " + System.Environment.NewLine + System.Environment.NewLine + List_Item + System.Environment.NewLine + "Thank you");
+                Send_download_link("amazingtestbaist3990@gmail.com", "amazingtestbaist3990@gmail.com", "C2: Delete Product!", "These are the following variable and delete paypal's button: " + System.Environment.NewLine + System.Environment.NewLine + List_Item + System.Environment.NewLine + "Thank you");
             
             }
             else

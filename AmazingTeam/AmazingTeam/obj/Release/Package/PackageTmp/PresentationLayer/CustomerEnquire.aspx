@@ -23,15 +23,11 @@
         
             <asp:DropDownList ID="TypeOfQuestion" runat="server" class="form-control" required>
             <asp:ListItem Value="" Selected="True"></asp:ListItem>
-            <asp:ListItem Value="Discount Question" >Discount Question</asp:ListItem>
-            <asp:ListItem Value="Special Order Questions">Special Order Questions</asp:ListItem>
-            
-            
-            <asp:ListItem Value="I don't have PayPal Account">I don't have PayPal Account</asp:ListItem>
-            <asp:ListItem Value="4">4</asp:ListItem>
-            <asp:ListItem Value="5">5</asp:ListItem>
-            <asp:ListItem Value="6">6</asp:ListItem>
-            <asp:ListItem Value="7">7</asp:ListItem>
+            <asp:ListItem Value="Products" >Products</asp:ListItem>
+            <asp:ListItem Value="Order">Order</asp:ListItem>
+            <asp:ListItem Value="PayPal">PayPal</asp:ListItem>
+            <asp:ListItem Value="Catering">Catering</asp:ListItem>
+            <asp:ListItem Value="General Question">General Question</asp:ListItem>
             </asp:DropDownList>
           </div>
         <div class="form-group">

@@ -48,5 +48,10 @@ namespace AmazingTeam.BusinessLayer
         {
             AmazingTeam.DataAccessLayer.Customer.AddCustomerEnquries(TypeOfQuestion, Name, Email, Message);
         }
+
+        public void VerifedCustomerOrder(string user_email, string payer_fristName, string payer_LastName, string paid_ItemId_1, string paid_ItemId_2, string paid_ItemId_3, string paid_ItemId_4, string paid_ItemId_5, string paid_ItemId_6, string paid_ItemId_7, string paid_ItemId_8, string paid_ItemId_9, string paid_ItemId_10, string paid_ItemId_11, string paid_ItemId_12, string paid_txn_id, DateTime outputDateTime)
+        {
+            AmazingTeam.DataAccessLayer.Owner.VerifedCustomerOrderData(user_email, payer_fristName, payer_LastName, paid_ItemId_1, paid_ItemId_2, paid_ItemId_3, paid_ItemId_4, paid_ItemId_5, paid_ItemId_6, paid_ItemId_7, paid_ItemId_8, paid_ItemId_9, paid_ItemId_10, paid_ItemId_11, paid_ItemId_12, paid_txn_id, outputDateTime);
+        }
     }
 }
