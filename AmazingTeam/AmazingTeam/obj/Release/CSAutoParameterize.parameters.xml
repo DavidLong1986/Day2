@@ -1,2 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters />
+<parameters>
+  <parameter name="AmazingTeamDatabaseConnectionString-Web.config Connection String" description="AmazingTeamDatabaseConnectionString Connection String used in web.config by the application to access the database." defaultValue="Data Source=j5ldchdajd.database.windows.net;Initial Catalog=AmazingTeamDatabase;Persist Security Info=True;User ID=AmazingTeam;Password=Baist3990?" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\DavieBoy\\Documents\\Visual\ Studio\ 2013\\Projects\\AmazingTeam\\AmazingTeam\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='AmazingTeamDatabaseConnectionString']/@connectionString" />
+  </parameter>
+</parameters>

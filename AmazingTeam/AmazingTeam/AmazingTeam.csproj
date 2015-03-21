@@ -78,6 +78,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="PresentationLayer\AboutUs.aspx" />
     <Content Include="PresentationLayer\AddFindUpdateDeleteMenu.aspx" />
+    <Content Include="PresentationLayer\ApproveTestimonial.aspx" />
     <Content Include="PresentationLayer\Authenticate.aspx" />
     <Content Include="PresentationLayer\C2.Master" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
@@ -87,6 +88,7 @@
     <Content Include="PresentationLayer\HistoryofAllOrder.aspx" />
     <Content Include="PresentationLayer\HomePage.aspx" />
     <Content Include="PresentationLayer\Menu.aspx" />
+    <Content Include="PresentationLayer\ReviewCustomerEnquiries.aspx" />
     <Content Include="PresentationLayer\ReviewOrder.aspx" />
     <Content Include="PresentationLayer\SuccessTranscation.aspx" />
     <Content Include="PresentationLayer\Testimonial.aspx" />
@@ -123,6 +125,13 @@
     </Compile>
     <Compile Include="PresentationLayer\AddFindUpdateDeleteMenu.aspx.designer.cs">
       <DependentUpon>AddFindUpdateDeleteMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\ApproveTestimonial.aspx.cs">
+      <DependentUpon>ApproveTestimonial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\ApproveTestimonial.aspx.designer.cs">
+      <DependentUpon>ApproveTestimonial.aspx</DependentUpon>
     </Compile>
     <Compile Include="PresentationLayer\Authenticate.aspx.cs">
       <DependentUpon>Authenticate.aspx</DependentUpon>
@@ -179,6 +188,13 @@
     </Compile>
     <Compile Include="PresentationLayer\Menu.aspx.designer.cs">
       <DependentUpon>Menu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\ReviewCustomerEnquiries.aspx.cs">
+      <DependentUpon>ReviewCustomerEnquiries.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\ReviewCustomerEnquiries.aspx.designer.cs">
+      <DependentUpon>ReviewCustomerEnquiries.aspx</DependentUpon>
     </Compile>
     <Compile Include="PresentationLayer\ReviewOrder.aspx.cs">
       <DependentUpon>ReviewOrder.aspx</DependentUpon>

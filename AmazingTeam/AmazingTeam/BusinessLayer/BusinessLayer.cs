@@ -43,6 +43,47 @@ namespace AmazingTeam.BusinessLayer
             Success = AmazingTeam.DataAccessLayer.Owner.DeleteProduct(ProductID);
             return Success;
         }
+        public DataSet FindTestimonial()
+        {
+            DataSet TestDataSet = new DataSet();
+
+            TestDataSet = AmazingTeam.DataAccessLayer.Owner.FindTestimonial();
+            return TestDataSet;
+        }
+        public bool LikeTestimonial(int ActiveStatus, int TestimonialID)
+        {
+            bool Success = false;
+
+            Success = AmazingTeam.DataAccessLayer.Owner.LikeTestimonial(ActiveStatus, TestimonialID);
+            return Success;
+        }
+        public bool DislikeTestimonial(int ActiveStatus, int TestimonialID)
+        {
+            bool Success = false;
+
+            Success = AmazingTeam.DataAccessLayer.Owner.DislikeTestimonial(ActiveStatus, TestimonialID);
+            return Success;
+        }
+        public DataSet HistoryOfAllOrders(string OrderFromDate, string OrderToDate)
+        {
+            return AmazingTeam.DataAccessLayer.Owner.HistoryOfAllOrders(OrderFromDate, OrderToDate);
+        }
+        public DataSet LoadAllActiveEnquiries()
+        {
+            DataSet EnqDataSet;
+            EnqDataSet = new DataSet();
+
+            EnqDataSet = AmazingTeam.DataAccessLayer.Owner.SelectAllActiveEnquiries();
+            return EnqDataSet;
+        }
+        public bool DeactiveSelectedEnq(int EnqID)
+        {
+            bool confirmation;
+            confirmation = false;
+
+            confirmation =  AmazingTeam.DataAccessLayer.Owner.DelEnq(EnqID);
+            return confirmation;
+        }
         //-----------------------Customer Enquire------------------------
         public void AddCustomerEnquries(string TypeOfQuestion, string Name, string Email, string Message)
         {
@@ -53,5 +94,19 @@ namespace AmazingTeam.BusinessLayer
         {
             AmazingTeam.DataAccessLayer.Owner.VerifedCustomerOrderData(user_email, payer_fristName, payer_LastName, paid_ItemId_1, paid_ItemId_2, paid_ItemId_3, paid_ItemId_4, paid_ItemId_5, paid_ItemId_6, paid_ItemId_7, paid_ItemId_8, paid_ItemId_9, paid_ItemId_10, paid_ItemId_11, paid_ItemId_12, paid_txn_id, outputDateTime);
         }
+        public void AddCustomerTestimonial(string RateC2, string Name, string Comments)
+        {
+            AmazingTeam.DataAccessLayer.Customer.AddCustomerTestimonial(RateC2, Name, Comments);
+        }
+        public DataSet FindApprovedTestimonial()
+        {
+            DataSet TestDataSet = new DataSet();
+
+            TestDataSet = AmazingTeam.DataAccessLayer.Customer.FindApprovedTestimonial();
+
+            return TestDataSet;
+        }
+
+        
     }
 }

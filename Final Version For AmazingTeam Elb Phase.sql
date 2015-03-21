@@ -4,6 +4,7 @@ drop table Category
 drop table Customers
 drop table Customer_Enquiries
 drop table Login
+drop table Testimonial
 Go
 drop Proc AddProduct
 drop proc UpdateProducts
@@ -12,6 +13,14 @@ drop proc DeleteProduct
 drop proc AddCustomerOrder
 drop proc AddCustomer_Enquiries
 drop proc LookupUserIDandPassword
+drop proc AddCustomer_Testimonial
+drop proc FindTestimonial
+drop proc LikeTestimonial
+drop proc DislikeTestimonial
+drop proc FindApprovedTestimonial
+drop proc HistoryOfAllOrders
+drop proc LoadAllActiveEnquiries
+drop proc DeActiveCustomerEnquiries
 go
 --drop proc FindMenuInfo
 go
@@ -131,8 +140,17 @@ CREATE TABLE [dbo].[Login](
 	[LoginID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
 )
-
 GO
+CREATE TABLE Testimonial
+(
+	TestimonialID [int] IDENTITY(1,1) NOT NULL,
+	Name [nvarchar](15) NULL,
+	Rate  [nvarchar](15) Null,
+	Comments [ntext] NULL,
+	PostDate datetime null,
+	ActiveStatus bit null
+)
+go
 ----------------End of Create table----------------------
 ----------------Start of Procedure-----------------------
 Create Procedure UpdateProducts
@@ -348,7 +366,118 @@ CREATE PROCEDURE LookupUserIDandPassword
             FROM login
             WHERE UserID = @UserID and Password = @Password and Respond = @Respond
 Go
---------------------------------------------------------------------
+---------------------------Testimonial--------------------------------
+CREATE PROCEDURE AddCustomer_Testimonial
+             @Name nchar(30),
+             @Rate nchar(30),
+			 @Comments ntext
+            AS
+Declare @PostDate datetime
+Set     @PostDate = GETDATE()
+insert into Testimonial (Name, Rate, Comments, PostDate, ActiveStatus)
+values(@Name, @Rate, @Comments, @PostDate, null)
+Go
+create procedure FindTestimonial
+as
+select * from Testimonial
+Order by PostDate 
+go
+Create Procedure LikeTestimonial
+(
+@TestimonialID int,
+@ActiveStatus bit
+)
+as
+Update Testimonial
+set
+ActiveStatus = 1
+where
+TestimonialID = @TestimonialID
+go
+Create procedure DislikeTestimonial
+(
+@TestimonialID int,
+@ActiveStatus bit 
+)
+As
+    Update Testimonial
+	 Set 
+	 ActiveStatus = 0
+	  Where
+	  TestimonialID  = @TestimonialID
+ GO
+create procedure FindApprovedTestimonial
+as
+select Name, Rate, Comments, PostDate from Testimonial 
+where ActiveStatus = 1
+Order by PostDate 
+go
+---------------------History of all orders------------------------------------
+CREATE PROCEDURE [dbo].[HistoryOfAllOrders]
+            @OrderFromDate date,
+             @OrderToDate date
+             
+            AS
+  select Orders.OrderID, Orders.OrderDate,Orders.RequiredDate,orders.TransactionID, 
+  Customers.CustomerID, customers.FirstName, customers.LastName
+  , products.ProductName, Products.Quantity,Orders.OrderStatus
+
+  
+  from Orders  inner join Customers
+  on Orders.CustomerID = Customers.CustomerID
+  
+  inner join Products
+  on Orders.ProductID = Products.ProductID
+  
+  where Orders.OrderDate between @OrderFromDate  and @OrderToDate
+Go
+-----------------------------AllActiveEnquiries---------------------------------------
+create Procedure LoadAllActiveEnquiries
+As
+      Declare @ReturnStatus as int
+      Set @ReturnStatus = 1
+      
+	  
+      Begin 
+            Select ID, TypeOfQuestion,Name,Email,Message,Active_Enquires
+			from Customer_Enquiries where Active_Enquires=1
+           
+      If @@ERROR = 0
+	       Set @ReturnStatus = 0
+	  Else
+	       RAISERROR ('Error: Laoding All Active Enquiries' ,16,1)
+	  End
+ Return	@ReturnStatus
+--exec LoadAllActiveEnquiries
+Go
+--------------------------------DeActiveCustomerEnquiries------------------------------------
+Create Procedure DeActiveCustomerEnquiries
+(
+@ID int
+
+)
+As
+  Declare @Return_Status int
+  Set     @Return_Status = 1
+
+  If @ID is null
+      RAISERROR('Deactivate Enquiry Error - Required parameter: @Enq_id',16,1)
+  Else
+      Begin
+      Update Customer_Enquiries
+	  Set 
+	 
+	  Active_Enquires = 0
+	  
+	  Where (ID  = @ID)
+	  
+        If @@Error = 0
+	    Set @Return_Status = 0
+		Else
+			RAISERROR('Deactivate Enquiry Error',16,1)
+		End 
+GO
+--exec DeActiveCustomerEnquiries '1'
 ----------Menu Lookup-----------------------------------------------
 --Create Procedure FindMenuInfo
 --As
@@ -367,6 +496,10 @@ values('Cori2','Amazing','Team', 'Cori', 'Pucci')
 insert into Category (CategoryName, Description)
 values('Food',null)
 Go
+-------------------------Customer Enquire-----------------------------------
+insert into Customer_Enquiries (TypeOfQuestion, Name, Email, Message, Active_Enquires)
+values('Catering','John', 'John@hotmail.com', 'Test', 1)
+GO
 -------------------------ProductList-------------------------------------
 execute AddProduct
 @ProductName = 'Bark (milk chocolate)',
@@ -446,7 +579,7 @@ execute AddProduct
 @Quantity= 1,
 @UnitPrice = 2.05,
 @UnitsInStock = 90,
-@UnitsOnOrder = 10,
+@UnitsOnOrder = 0,
 @Description = 'cupcake'
 go
 execute AddProduct
@@ -526,10 +659,26 @@ go
 --@Email = 'Linda@hotmail.com',
 --@Message = 'Is there nuts in the product?'
 ----------------------------------------------------------
-
+--exec AddCustomer_Testimonial
+--@Name = 'Iron Man',
+--@Rate = '1 of 5',
+--@Comments = 'Testing Testimonial'
+go
 Select * from Products
 Select * from Category
 select * from Orders
 select * from Customers
 select * from Customer_Enquiries
 select * from Login
+Select * from Testimonial
+
+
+
+ 
+
+
+
+
+
+
+

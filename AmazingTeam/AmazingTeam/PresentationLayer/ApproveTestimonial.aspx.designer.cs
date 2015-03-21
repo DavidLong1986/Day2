@@ -10,7 +10,7 @@
 namespace AmazingTeam.PresentationLayer {
     
     
-    public partial class Testimonial {
+    public partial class ApproveTestimonial {
         
         /// <summary>
         /// DynamicTable control.
@@ -22,6 +22,15 @@ namespace AmazingTeam.PresentationLayer {
         protected global::System.Web.UI.WebControls.Table DynamicTable;
         
         /// <summary>
+        /// TestimonialNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TestimonialNumber;
+        
+        /// <summary>
         /// MessageLabel control.
         /// </summary>
         /// <remarks>
@@ -31,39 +40,21 @@ namespace AmazingTeam.PresentationLayer {
         protected global::System.Web.UI.WebControls.Label MessageLabel;
         
         /// <summary>
-        /// Name control.
+        /// Like control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Name;
+        protected global::System.Web.UI.WebControls.Button Like;
         
         /// <summary>
-        /// RateC2 control.
+        /// Dislike control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList RateC2;
-        
-        /// <summary>
-        /// InputComments control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox InputComments;
-        
-        /// <summary>
-        /// submitTestimonial control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button submitTestimonial;
+        protected global::System.Web.UI.WebControls.Button Dislike;
     }
 }

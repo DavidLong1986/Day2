@@ -1,14 +1,27 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PresentationLayer/C2.Master" AutoEventWireup="true" CodeBehind="AddFindUpdateDeleteMenu.aspx.cs" Inherits="AmazingTeam.PresentationLayer.AddUpdateDelete" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
-               <!--My Jumbotron -->
+<!--Jumbotron -->
 <div class="container">
   <div class="jumbotron">
     <h1 style="text-align:center;">Administration Page!</h1>      
   </div>
 </div>
     <!--End of Jumbotron -->
+
+<!--Tabs for other Admin Pages -->
+<div class="container">
+  <div class="btn-group btn-group-md">
+  <a href="ApproveTestimonial.aspx" class="btn btn-default">Review Testimonial</a>
+  <a href="HistoryofAllOrder.aspx"  class="btn btn-default">History Of All Orders</a>
+  <a href="ReviewCustomerEnquiries.aspx" class="btn btn-default">Review Customer Enquiries</a>
+  </div>
+  <hr>
+</div>
+<!--End of Tabs for other Admin Pages  -->
+
 <form role="form" runat="server" method="post" >
 <div class="container col-md-offset-3 col-md-6 col-md-offset-3">
+
 <div class="row">
       <div class="well well-sm"><strong><i class="glyphicon glyphicon-ok form-control-feedback"></i> Required Field</strong></div>
         <label>Product ID</label>

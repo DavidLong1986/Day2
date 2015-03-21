@@ -24,14 +24,14 @@ using System.ComponentModel;
 
 namespace AmazingTeam.PresentationLayer
 {
-    public partial class Testimonial : System.Web.UI.Page
+    public partial class ApproveTestimonial : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
             AmazingTeam.BusinessLayer.BusinessLayer Controller = new AmazingTeam.BusinessLayer.BusinessLayer();
 
-            DataSet TestDataSet = Controller.FindApprovedTestimonial();
+            DataSet TestDataSet = Controller.FindTestimonial();
+
 
             foreach (DataTable Table in TestDataSet.Tables)
             {
@@ -56,27 +56,45 @@ namespace AmazingTeam.PresentationLayer
                     }
                 }
             }
+        }    
+  
 
-       
+protected void Like_Click(object sender, EventArgs e)
+{
+    AmazingTeam.BusinessLayer.BusinessLayer Controller = new AmazingTeam.BusinessLayer.BusinessLayer();
 
-        }
+    int ActiveStatus = 1;
+    int TestimonialID = Convert.ToInt32(TestimonialNumber.Text);
 
-        protected void submit_Click(object sender, EventArgs e)
-        {
-            AmazingTeam.BusinessLayer.BusinessLayer Controller = new AmazingTeam.BusinessLayer.BusinessLayer();
-
-            try
-            {
-
-                Controller.AddCustomerTestimonial(RateC2.SelectedValue, Name.Text, InputComments.Text);
-
-                MessageLabel.Text = "Thanks for your testimonial";
-            }
-            catch (Exception ex)
-            {
-                MessageLabel.Text = ex.Message;
-            }
-        }
-
+    if (Controller.LikeTestimonial(ActiveStatus, TestimonialID))
+    {
+        MessageLabel.Text = "Testimonial is approved";
     }
+    else
+    {
+        MessageLabel.Text = "Testimonial is not approved";
+    }
+    Response.Redirect(Request.RawUrl);
 }
+
+protected void Dislike_Click(object sender, EventArgs e)
+{
+    AmazingTeam.BusinessLayer.BusinessLayer Controller = new AmazingTeam.BusinessLayer.BusinessLayer();
+
+    int ActiveStatus = 0;
+    int TestimonialID = Convert.ToInt32(TestimonialNumber.Text);
+
+    if (Controller.DislikeTestimonial(ActiveStatus, TestimonialID))
+    {
+        MessageLabel.Text = "Testimonial is unpproved";
+    }
+    else
+    {
+        MessageLabel.Text = "Testimonial is not unapproved";
+    }
+    Response.Redirect(Request.RawUrl);
+}
+
+}
+        
+    }

@@ -297,5 +297,183 @@ namespace AmazingTeam.DataAccessLayer
 
         }
 
+        public static DataSet FindTestimonial()
+        {
+            SqlConnection MyConnection = new SqlConnection(StrConn);
+
+            SqlCommand MyCommand = new SqlCommand();
+            MyCommand.CommandType = CommandType.StoredProcedure;
+            MyCommand.Connection = MyConnection;
+            MyCommand.CommandText = "FindTestimonial";
+
+            MyConnection.Open();
+
+            SqlDataAdapter MyDataAdapter = new SqlDataAdapter();
+            MyDataAdapter.SelectCommand = MyCommand;
+            DataSet MyDataSet = new DataSet();
+            MyDataSet.Tables.Add("Testimonial");
+            MyDataAdapter.Fill(MyDataSet);
+
+            MyConnection.Close();
+            return MyDataSet;
+        }
+        public static bool LikeTestimonial(int ActiveStatus, int TestimonialID)
+        {
+            SqlConnection MyConnection = new SqlConnection(StrConn);
+
+            SqlCommand MyCommand = new SqlCommand();
+            MyCommand.CommandType = CommandType.StoredProcedure;
+            MyCommand.Connection = MyConnection;
+            MyCommand.CommandText = "LikeTestimonial";
+
+            SqlParameter id = new SqlParameter();
+            id.ParameterName = "@TestimonialID";
+            id.SqlDbType = SqlDbType.Int;
+            id.Value = TestimonialID;
+            id.Direction = ParameterDirection.Input;
+            MyCommand.Parameters.Add(id);
+
+            SqlParameter active = new SqlParameter();
+            active.ParameterName = "@ActiveStatus";
+            active.SqlDbType = SqlDbType.Int;
+            active.Value = ActiveStatus;
+            active.Direction = ParameterDirection.Input;
+            MyCommand.Parameters.Add(active);
+
+            MyConnection.Open();
+            int rowsAffected;
+            rowsAffected = MyCommand.ExecuteNonQuery();
+            MyConnection.Close();
+
+            bool success;
+
+            if (rowsAffected == 0)
+            {
+                success = false;
+            }
+            else
+            {
+                success = true;
+            }
+            return success;
+        }
+        public static bool DislikeTestimonial(int ActiveStatus, int TestimonialID)
+        {
+            SqlConnection MyConnection = new SqlConnection(StrConn);
+
+            SqlCommand MyCommand = new SqlCommand();
+            MyCommand.CommandType = CommandType.StoredProcedure;
+            MyCommand.Connection = MyConnection;
+            MyCommand.CommandText = "DislikeTestimonial";
+
+            SqlParameter id = new SqlParameter();
+            id.ParameterName = "@TestimonialID";
+            id.SqlDbType = SqlDbType.Int;
+            id.Value = TestimonialID;
+            id.Direction = ParameterDirection.Input;
+            MyCommand.Parameters.Add(id);
+
+            SqlParameter active = new SqlParameter();
+            active.ParameterName = "@ActiveStatus";
+            active.SqlDbType = SqlDbType.Int;
+            active.Value = ActiveStatus;
+            active.Direction = ParameterDirection.Input;
+            MyCommand.Parameters.Add(active);
+
+            MyConnection.Open();
+            int rowsAffected;
+            rowsAffected = MyCommand.ExecuteNonQuery();
+            MyConnection.Close();
+
+            bool success;
+
+            if (rowsAffected == 0)
+            {
+                success = false;
+            }
+            else
+            {
+                success = true;
+            }
+            return success;
+        }
+
+        public static DataSet HistoryOfAllOrders(string OrderFromDate, string OrderToDate)
+        {
+            // 6 lines of code
+            SqlConnection MyConn = new SqlConnection(StrConn);
+            SqlDataAdapter MyAdapter = new SqlDataAdapter("Exec HistoryOfAllOrders @OrderFromDate, @OrderToDate", MyConn);
+            MyAdapter.SelectCommand.Parameters.Add("@OrderFromDate", SqlDbType.NChar).Value = OrderFromDate;
+
+            MyAdapter.SelectCommand.Parameters.Add("@OrderToDate", SqlDbType.NChar).Value = OrderToDate;
+
+
+            DataSet MyDataset = new DataSet();
+            MyAdapter.Fill(MyDataset);
+            return MyDataset;
+        }
+
+        public static DataSet SelectAllActiveEnquiries()
+        {
+
+            SqlConnection MyConnection = new SqlConnection(StrConn);
+
+            SqlCommand MyCommand = new SqlCommand();
+            MyCommand.CommandType = CommandType.StoredProcedure;
+            MyCommand.Connection = MyConnection;
+            MyCommand.CommandText = "LoadAllActiveEnquiries";
+
+            MyConnection.Open();
+            SqlDataAdapter MyDataAdapter = new SqlDataAdapter();
+            MyDataAdapter.SelectCommand = MyCommand;
+
+            DataSet MyDataset = new DataSet();
+
+            MyDataAdapter.Fill(MyDataset);
+
+            MyConnection.Close();
+            return MyDataset;
+        }
+
+        public static bool DelEnq(int id)
+        {
+            bool Success = false;
+
+            SqlConnection MyConnection = new SqlConnection(StrConn);
+
+            SqlCommand comm = new SqlCommand();
+
+            comm.CommandText = "DeActiveCustomerEnquiries";
+            comm.CommandType = CommandType.StoredProcedure;
+            comm.Connection = MyConnection;
+
+            SqlParameter userid = new SqlParameter();
+            userid.ParameterName = "@ID";
+            userid.SqlDbType = SqlDbType.NVarChar;
+            userid.Value = id;
+            userid.Direction = ParameterDirection.Input;
+            comm.Parameters.Add(userid);
+
+            SqlParameter StatusParameter = new SqlParameter();
+            StatusParameter.ParameterName = "@Active_Enquires";
+            StatusParameter.Direction = ParameterDirection.ReturnValue;
+            StatusParameter.SqlDbType = SqlDbType.Int;
+            comm.Parameters.Add(StatusParameter);
+
+            MyConnection.Open();
+            comm.ExecuteNonQuery();
+            int Status = (int)StatusParameter.Value;
+            if (Status == 0)
+            {
+                Success = true;
+            }
+            else
+            {
+                Success = false;
+            }
+            return Success;
+
+        }
+
     }
 }

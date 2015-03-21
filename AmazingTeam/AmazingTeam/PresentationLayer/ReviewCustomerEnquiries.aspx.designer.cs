@@ -10,60 +10,42 @@
 namespace AmazingTeam.PresentationLayer {
     
     
-    public partial class Testimonial {
+    public partial class ReviewCustomerEnquiries {
         
         /// <summary>
-        /// DynamicTable control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table DynamicTable;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// MessageLabel control.
+        /// lbMsg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label MessageLabel;
+        protected global::System.Web.UI.WebControls.Label lbMsg;
         
         /// <summary>
-        /// Name control.
+        /// btnLoadActiveEnquires control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Name;
+        protected global::System.Web.UI.WebControls.Button btnLoadActiveEnquires;
         
         /// <summary>
-        /// RateC2 control.
+        /// gvAllActive control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList RateC2;
-        
-        /// <summary>
-        /// InputComments control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox InputComments;
-        
-        /// <summary>
-        /// submitTestimonial control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button submitTestimonial;
+        protected global::System.Web.UI.WebControls.GridView gvAllActive;
     }
 }

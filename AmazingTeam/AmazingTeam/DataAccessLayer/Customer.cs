@@ -49,6 +49,54 @@ namespace AmazingTeam.DataAccessLayer
 
         }
 
+        public static void AddCustomerTestimonial(string RateC2, string Name, string InputComments)
+        {
+            //1. Instantiate a new connection object
+            SqlConnection MyConn = new SqlConnection(StrConn);
+            //2. Instatiate a new Command object
+            SqlCommand MyCommand = new SqlCommand("AddCustomer_Testimonial", MyConn);
+            //3. the command type must be stored procedure
+            MyCommand.CommandType = CommandType.StoredProcedure;
+            //4. Create/substitue all 4 parameters:CourseId, Coursename,
+            //   
+            MyCommand.Parameters.Add("@Rate", SqlDbType.NVarChar).Value = RateC2 + " out of 5";
+            MyCommand.Parameters.Add("@Name", SqlDbType.NVarChar).Value = Name;
+            MyCommand.Parameters.Add("@Comments", SqlDbType.NVarChar).Value = InputComments;
+
+
+            // execute the command object via Try..Finally block
+            MyConn.Open();
+            try
+            {
+                MyCommand.ExecuteNonQuery();
+            }
+            finally
+            {
+                MyConn.Close();
+            }
+
+        }
+        public static DataSet FindApprovedTestimonial()
+        {
+            SqlConnection MyConnection = new SqlConnection(StrConn);
+
+            SqlCommand MyCommand = new SqlCommand();
+            MyCommand.CommandType = CommandType.StoredProcedure;
+            MyCommand.Connection = MyConnection;
+            MyCommand.CommandText = "FindApprovedTestimonial";
+
+            MyConnection.Open();
+
+            SqlDataAdapter MyDataAdapter = new SqlDataAdapter();
+            MyDataAdapter.SelectCommand = MyCommand;
+            DataSet MyDataSet = new DataSet();
+            MyDataSet.Tables.Add("Testimonial");
+            MyDataAdapter.Fill(MyDataSet);
+
+            MyConnection.Close();
+            return MyDataSet;
+        }
+
         
     }
 }

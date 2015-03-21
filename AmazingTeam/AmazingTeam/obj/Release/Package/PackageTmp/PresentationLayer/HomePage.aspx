@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PresentationLayer/C2.Master" AutoEventWireup="true" CodeBehind="HomePage.aspx.cs" Inherits="AmazingTeam.PresentationLayer.HomePage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
+    <form id="form1" runat="server">
     <div class="container">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
@@ -76,4 +77,5 @@
 </div><!-- /.container -->
 
 </div>
+    </form>
 </asp:Content>
