@@ -10,42 +10,42 @@
 namespace AmazingTeam.PresentationLayer {
     
     
-    public partial class Authenticate {
+    public partial class ReviewCurrentOrders {
         
         /// <summary>
-        /// UserName control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox UserName;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Password control.
+        /// lbMsg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Password;
+        protected global::System.Web.UI.WebControls.Label lbMsg;
         
         /// <summary>
-        /// MessageLine control.
+        /// btnLoad control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label MessageLine;
+        protected global::System.Web.UI.WebControls.Button btnLoad;
         
         /// <summary>
-        /// LoginIn control.
+        /// gvAllActiveOrders control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button LoginIn;
+        protected global::System.Web.UI.WebControls.GridView gvAllActiveOrders;
     }
 }

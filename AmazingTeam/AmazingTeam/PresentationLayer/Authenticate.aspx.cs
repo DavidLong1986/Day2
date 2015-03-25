@@ -31,19 +31,19 @@ namespace AmazingTeam.PresentationLayer
                 DataTable Mytable = null;
 
 
-                Mytable = Controller.LookupUserIDPassword(UserName.Text, Password.Text, SecretAnswer.Text).Tables[0];
+                Mytable = Controller.LookupUserIDPassword(UserName.Text, Password.Text).Tables[0];
 
 
 
 
                 if (Mytable.Rows.Count == 0)
                 {
-                    MessageLine.Text = "Invalid User ID or Password or secret question's respond";
+                    MessageLine.Text = "Invalid User ID or Password";
 
                 }
                 else
                 {
-                    Server.Transfer("~/PresentationLayer/AddFindUpdateDeleteMenu.aspx");
+                    Server.Transfer("~/PresentationLayer/SecurityForm.aspx");
                 }
 
             }

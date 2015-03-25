@@ -21,10 +21,22 @@ namespace AmazingTeam.DataAccessLayer
         public const string StrConn = "Server=tcp:j5ldchdajd.database.windows.net,1433;Database=AmazingTeamDatabase;User ID=AmazingTeam@j5ldchdajd;Password=Baist3990?;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;";
       
 
-        public static DataSet LookupUserIDPassword(string UserID, string Password, string Respond)
+        public static DataSet LookupUserIDPassword(string UserID, string Password)
         {
             SqlConnection MyConn = new SqlConnection(StrConn);
-            SqlDataAdapter MyAdapter = new SqlDataAdapter("Exec LookupUserIDandPassword @Userid, @Password, @Respond", MyConn);
+            SqlDataAdapter MyAdapter = new SqlDataAdapter("Exec LookupUserIDandPassword @Userid, @Password", MyConn);
+            MyAdapter.SelectCommand.Parameters.Add("@UserID", SqlDbType.NChar).Value = UserID;
+            MyAdapter.SelectCommand.Parameters.Add("@Password", SqlDbType.NChar).Value = Password;
+
+            DataSet MyDataset = new DataSet();
+            MyAdapter.Fill(MyDataset);
+            return MyDataset;
+        }
+
+        public static DataSet LookupSecretQuestionRespond(string UserID, string Password, string Respond)
+        {
+            SqlConnection MyConn = new SqlConnection(StrConn);
+            SqlDataAdapter MyAdapter = new SqlDataAdapter("Exec LookupSecretQuestionRespond @Userid, @Password, @Respond", MyConn);
             MyAdapter.SelectCommand.Parameters.Add("@UserID", SqlDbType.NChar).Value = UserID;
             MyAdapter.SelectCommand.Parameters.Add("@Password", SqlDbType.NChar).Value = Password;
             MyAdapter.SelectCommand.Parameters.Add("@Respond", SqlDbType.NChar).Value = Respond;
@@ -474,6 +486,68 @@ namespace AmazingTeam.DataAccessLayer
             return Success;
 
         }
+
+        public static DataSet SelectAllActiveOrders()
+        {
+
+            SqlConnection MyConnection = new SqlConnection(StrConn);
+
+            SqlCommand MyCommand = new SqlCommand();
+            MyCommand.CommandType = CommandType.StoredProcedure;
+            MyCommand.Connection = MyConnection;
+            MyCommand.CommandText = "LoadAllActiveOrders";
+
+            MyConnection.Open();
+            SqlDataAdapter MyDataAdapter = new SqlDataAdapter();
+            MyDataAdapter.SelectCommand = MyCommand;
+
+            DataSet MyDataset = new DataSet();
+
+            MyDataAdapter.Fill(MyDataset);
+
+            MyConnection.Close();
+            return MyDataset;
+        }
+
+        public static bool DelOrder(int id)
+        {
+            bool Success = false;
+
+            SqlConnection MyConnection = new SqlConnection(StrConn);
+
+            SqlCommand comm = new SqlCommand();
+            comm.CommandText = "DeActiveOrder";
+            comm.CommandType = CommandType.StoredProcedure;
+            comm.Connection = MyConnection;
+
+            SqlParameter userid = new SqlParameter();
+            userid.ParameterName = "@Order_id ";
+            userid.SqlDbType = SqlDbType.Int;
+            userid.Value = id;
+            userid.Direction = ParameterDirection.Input;
+            comm.Parameters.Add(userid);
+
+            SqlParameter StatusParameter = new SqlParameter();
+            StatusParameter.ParameterName = "@status";
+            StatusParameter.Direction = ParameterDirection.ReturnValue;
+            StatusParameter.SqlDbType = SqlDbType.Int;
+            comm.Parameters.Add(StatusParameter);
+
+            MyConnection.Open();
+            comm.ExecuteNonQuery();
+            int Status = (int)StatusParameter.Value;
+            if (Status == 0)
+            {
+                Success = true;
+            }
+            else
+            {
+                Success = false;
+            }
+            return Success;
+
+        }
+
 
     }
 }

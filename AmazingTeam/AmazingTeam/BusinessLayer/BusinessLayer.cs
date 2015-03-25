@@ -14,9 +14,14 @@ namespace AmazingTeam.BusinessLayer
     public class BusinessLayer
     {
         //Authenticate---------------------------------------------------------------------------------
-        public DataSet LookupUserIDPassword(string UserID, string Password, string Respond)
+        public DataSet LookupUserIDPassword(string UserID, string Password)
         {
-            return AmazingTeam.DataAccessLayer.Owner.LookupUserIDPassword (UserID, Password, Respond);
+            return AmazingTeam.DataAccessLayer.Owner.LookupUserIDPassword (UserID, Password);
+        }
+
+        public DataSet LookupSecretQuestionRespond(string UserID, string Password, string Respond)
+        {
+            return AmazingTeam.DataAccessLayer.Owner.LookupSecretQuestionRespond(UserID, Password, Respond);
         }
         //Owner----------------------------------------------------------------------------------------
         public bool AddProduct(string ProductNames, string CategoryIDs, string QuantityPerUnits, string UnitPrices, string UnitsinStock, string UnitsonOrder, string ProductDescription)
@@ -84,6 +89,22 @@ namespace AmazingTeam.BusinessLayer
             confirmation =  AmazingTeam.DataAccessLayer.Owner.DelEnq(EnqID);
             return confirmation;
         }
+        public DataSet LoadAllActiveOrders()
+        {
+            DataSet OrderDataSet;
+            OrderDataSet = new DataSet();
+            OrderDataSet = AmazingTeam.DataAccessLayer.Owner.SelectAllActiveOrders();
+            return OrderDataSet;
+        }
+        public bool DeactiveSelectedOrder(int OrderID)
+        {
+            bool confirmation;
+            confirmation = false;
+            confirmation = AmazingTeam.DataAccessLayer.Owner.DelOrder(OrderID);
+            return confirmation;
+        }
+
+
         //-----------------------Customer Enquire------------------------
         public void AddCustomerEnquries(string TypeOfQuestion, string Name, string Email, string Message)
         {

@@ -3,6 +3,7 @@ drop table Products
 drop table Category
 drop table Customers
 drop table Customer_Enquiries
+drop table LoginExtended
 drop table Login
 drop table Testimonial
 Go
@@ -21,6 +22,9 @@ drop proc FindApprovedTestimonial
 drop proc HistoryOfAllOrders
 drop proc LoadAllActiveEnquiries
 drop proc DeActiveCustomerEnquiries
+drop proc LoadAllActiveOrders
+drop proc DeActiveOrder
+drop proc LookupSecretQuestionRespond
 go
 --drop proc FindMenuInfo
 go
@@ -79,7 +83,6 @@ GO
 ALTER TABLE Products CHECK CONSTRAINT [FK_Products_Category]
 GO
 ----------------------------------------------------------
-
 CREATE TABLE [dbo].[Orders](
 	[OrderID] [int] IDENTITY(1,1) NOT NULL,
 	[CustomerID] [nvarchar](50) NOT NULL,
@@ -132,14 +135,28 @@ CREATE TABLE [dbo].[Login](
 	[LoginID] [int] IDENTITY(1,1) NOT NULL,
 	[UserID] [nchar](30) NOT NULL,
 	[Password] [nchar](30) NOT NULL,
-	[Respond] [nchar](30) NOT NULL,
 	[FirstName] [nvarchar](40) NOT NULL,
 	[LastName] [nvarchar](30) NULL,
  CONSTRAINT [PK_Login] PRIMARY KEY CLUSTERED 
 (
 	[LoginID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
-)
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+CREATE TABLE [dbo].[LoginExtended](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[LoginID] [int] NOT NULL,
+	[SecurityQuestionRespond] [nvarchar](30) NOT NULL,
+ CONSTRAINT [PK_LoginExtended] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[LoginExtended]  WITH NOCHECK ADD  CONSTRAINT [FK_LoginExtended_Login] FOREIGN KEY([LoginID])
+REFERENCES [dbo].[Login] ([LoginID])
+GO
+ALTER TABLE [dbo].[LoginExtended] CHECK CONSTRAINT [FK_LoginExtended_Login]
 GO
 CREATE TABLE Testimonial
 (
@@ -355,16 +372,15 @@ CREATE PROCEDURE AddCustomer_Enquiries
 insert into Customer_Enquiries(TypeOfQuestion,Name,Email,Message) 
 VALUES (@TypeOfQuestion,@Name,@Email,@Message)
 Go
----------------------------------------------------------
-CREATE PROCEDURE LookupUserIDandPassword
+---------------------Login------------------------------------
+CREATE PROCEDURE [dbo].[LookupUserIDandPassword]
             @UserID nchar(30),
-             @Password nchar(30),
-			 @Respond nchar(30)
+             @Password nchar(30)
              
             AS
             select *
             FROM login
-            WHERE UserID = @UserID and Password = @Password and Respond = @Respond
+            WHERE UserID = @UserID and Password = @Password 
 Go
 ---------------------------Testimonial--------------------------------
 CREATE PROCEDURE AddCustomer_Testimonial
@@ -478,6 +494,80 @@ As
 		End 
 GO
 --exec DeActiveCustomerEnquiries '1'
+------------------------------Procedure for Loading All Active Orders ----------------------------
+create Procedure LoadAllActiveOrders
+As
+      Declare @ReturnStatus as int
+      Set @ReturnStatus = 1
+      
+	  Begin 
+            select Orders.OrderID, Orders.OrderDate,Orders.RequiredDate,orders.TransactionID, 
+			Customers.CustomerID, Customers.FirstName, Customers.LastName, Products.ProductName,
+			Products.Quantity, Orders.OrderStatus
+
+      from Orders
+        inner join Customers
+		on Orders.CustomerID = Customers.CustomerID
+		
+		inner join Products
+		on Orders.ProductID = Products.ProductID
+		
+		where OrderStatus = 1
+      
+      If @@ERROR = 0
+	       Set @ReturnStatus = 0
+	  Else
+	       RAISERROR ('Error: Laoding All Active Orders' ,16,1)
+	  End
+ Return	@ReturnStatus
+GO
+--Exec LoadAllActiveOrders
+GO
+------------------------------Procedure for De-Activating All Active Orders ----------------------------
+Create Procedure DeActiveOrder
+(
+@Order_ID int
+)
+As
+  Declare @ReturnStatus int
+  Set     @ReturnStatus = 1
+
+  If @Order_id is null
+      RAISERROR('Deactivate Order  Error - Required parameter: @Order_id',16,1)
+  Else
+      Begin
+      Update Orders
+	  Set 
+	 
+	  OrderStatus = 0
+	  
+	  Where (OrderID  = @Order_ID)
+	  
+        If @@Error = 0
+	    Set @ReturnStatus = 0
+		Else
+			RAISERROR('Deactivate Order Error',16,1)
+		End 
+GO
+--exec DeActiveOrder 'OrderID'
+--------------------Login Extended-------------------
+ CREATE PROCEDURE [dbo].[LookupSecretQuestionRespond]
+            @UserID nchar(30),
+             @Password nchar(30),
+             @SecurityQuestionRespond nvarchar(30)
+            AS
+            
+  
+  
+  select a.UserId, a.Password, b.SecurityQuestionRespond
+  
+  from Login a , LoginExtended b
+	where  a.LoginID= b.LoginID
+  
+  and  a.UserId = @UserID
+  and  a.Password = @Password 
+  and  b.SecurityQuestionRespond = @SecurityQuestionRespond
+  Go
 ----------Menu Lookup-----------------------------------------------
 --Create Procedure FindMenuInfo
 --As
@@ -486,12 +576,6 @@ GO
 --Go
 --exec FindMenuInfo
 ------------Start of Inserts and Test Proc in SQL------------------------
--------------------Hard Code Login---------------------------------------
-insert into Login (UserID, Password, Respond, FirstName, LastName)
-values('Davidz','abc', 'John', 'David', 'Long')
-go
-insert into Login (UserID, Password, Respond, FirstName, LastName)
-values('Cori2','Amazing','Team', 'Cori', 'Pucci')
 ------------Hard Cold One Category Because All item shows up ones--------
 insert into Category (CategoryName, Description)
 values('Food',null)
@@ -663,6 +747,24 @@ go
 --@Name = 'Iron Man',
 --@Rate = '1 of 5',
 --@Comments = 'Testing Testimonial'
+Go
+-------------------Login and Extended---------------------
+-------------------Hard Code Login------------------------
+insert into Login(UserID,Password,FirstName, LastName)
+values('Khalif', 'abc', 'Khalif', 'Sule');
+insert into Login(UserID,Password,FirstName, LastName)
+values('David', 'abc', 'David', 'Long');
+insert into Login(UserID,Password,FirstName, LastName)
+values('Cori2', 'Amazing', 'Cori', 'Pucci');
+go
+---Extended
+Go
+insert into dbo.LoginExtended(LoginID, SecurityQuestionRespond)
+values (1, 'Chum')
+insert into dbo.LoginExtended(LoginID, SecurityQuestionRespond)
+values (2, 'John')
+insert into dbo.LoginExtended(LoginID, SecurityQuestionRespond)
+values (3, 'Olga')
 go
 Select * from Products
 Select * from Category

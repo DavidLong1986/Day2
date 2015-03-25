@@ -14,6 +14,7 @@
   <a href="ApproveTestimonial.aspx" class="btn btn-default">Review Testimonial</a>
   <a href="HistoryofAllOrder.aspx"  class="btn btn-default">History Of All Orders</a>
   <a href="ReviewCustomerEnquiries.aspx" class="btn btn-default">Review Customer Enquiries</a>
+  <a href="ReviewCurrentOrders.aspx" class="btn btn-default">Review Current Orders</a>
   </div>
   <hr>
 </div>
