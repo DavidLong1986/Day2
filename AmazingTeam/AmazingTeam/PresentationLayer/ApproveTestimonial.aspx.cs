@@ -30,32 +30,23 @@ namespace AmazingTeam.PresentationLayer
         {
             AmazingTeam.BusinessLayer.BusinessLayer Controller = new AmazingTeam.BusinessLayer.BusinessLayer();
 
-            DataSet TestDataSet = Controller.FindTestimonial();
+            DataSet TestDataSet;
 
-
-            foreach (DataTable Table in TestDataSet.Tables)
+            TestDataSet = Controller.FindTestimonial(); //Controller.LoadAllActiveOrders();
+            if (TestDataSet.Tables[0].Rows.Count > 0)
             {
-                TableRow tblrow = new TableRow();
-                DynamicTable.Rows.Add(tblrow);
+                DynamicTable.DataSource = TestDataSet;
+                DynamicTable.DataBind();
 
-                foreach (DataColumn Column in Table.Columns)
+                MessageLabel.Text = DynamicTable.Rows.Count + " Testimonial Retrieved ...";
+            }
+            else
+            {
                 {
-                    TableCell tblcell = new TableCell();
-                    tblcell.Text = Column.ColumnName;
-                    tblrow.Cells.Add(tblcell);
-                }
-                foreach (DataRow row in Table.Rows)
-                {
-                    tblrow = new TableRow();
-                    DynamicTable.Rows.Add(tblrow);
-                    for (int index = 0; index <= Table.Columns.Count - 1; index++)
-                    {
-                        TableCell newcell = new TableCell();
-                        newcell.Text = row[index].ToString();
-                        tblrow.Cells.Add(newcell);
-                    }
+                    MessageLabel.Text = "No Testimonial Retrieved...";
                 }
             }
+       
         }    
   
 

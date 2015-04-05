@@ -28,36 +28,24 @@ namespace AmazingTeam.PresentationLayer
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
             AmazingTeam.BusinessLayer.BusinessLayer Controller = new AmazingTeam.BusinessLayer.BusinessLayer();
+            DataSet TestDataSet;
 
-            DataSet TestDataSet = Controller.FindApprovedTestimonial();
-
-            foreach (DataTable Table in TestDataSet.Tables)
+            TestDataSet = Controller.FindApprovedTestimonial();
+            if (TestDataSet.Tables[0].Rows.Count > 0)
             {
-                TableRow tblrow = new TableRow();
-                DynamicTable.Rows.Add(tblrow);
+                gvAllActive.DataSource = TestDataSet;
+                gvAllActive.DataBind();
 
-                foreach (DataColumn Column in Table.Columns)
+                MessageLabel.Text = gvAllActive.Rows.Count + " Customer Testimonial Retrived...";
+            }
+            else
+            {
                 {
-                    TableCell tblcell = new TableCell();
-                    tblcell.Text = Column.ColumnName;
-                    tblrow.Cells.Add(tblcell);
-                }
-                foreach (DataRow row in Table.Rows)
-                {
-                    tblrow = new TableRow();
-                    DynamicTable.Rows.Add(tblrow);
-                    for (int index = 0; index <= Table.Columns.Count - 1; index++)
-                    {
-                        TableCell newcell = new TableCell();
-                        newcell.Text = row[index].ToString();
-                        tblrow.Cells.Add(newcell);
-                    }
+                    MessageLabel.Text = gvAllActive.Rows.Count + " Customer Testimonial Retrived ...";
+
                 }
             }
-
-       
 
         }
 

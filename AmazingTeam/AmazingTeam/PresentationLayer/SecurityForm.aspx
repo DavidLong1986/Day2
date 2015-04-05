@@ -19,17 +19,17 @@
          <asp:TextBox ID="Respond" runat="server" Width="247px"></asp:TextBox>
     </p>
     <p>
-        <asp:Label ID="MessageLine1" runat="server" ForeColor="Red" Text="Message"></asp:Label>
+        <asp:Label ID="MessageLine1" runat="server" ForeColor="Red" ></asp:Label>
     </p>
     <p>
-        <asp:Label ID="MessageLine2" runat="server" ForeColor="Red" Text="Message"></asp:Label>
+        <asp:Label ID="MessageLine2" runat="server" ForeColor="Red" ></asp:Label>
     </p>
     <p>
-        <asp:Label ID="MessageLine3" runat="server" ForeColor="Red" Text="Message"></asp:Label>
+        <asp:Label ID="MessageLine3" runat="server" ForeColor="Red"></asp:Label>
     </p>
     
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-        &nbsp;<asp:Button ID="BtnSumit" runat="server" Text="Submit" Width="70px" 
+        &nbsp;<asp:Button ID="BtnSumit" runat="server" Text="Submit" class="btn btn-sm btn-info"
             onclick="BtnSumit_Click" />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     

@@ -4,13 +4,13 @@
 
 
 
-<!--My Jumbotron -->
-<div class="container">
-  <div class="jumbotron">
-    <h1 style="text-align:center;">your question!</h1>      
-  </div>
+        <!--My Jumbotron -->
+    <div class="container">
+  <div class="jumbotron"; style="background-image:url(https://scontent-sea.xx.fbcdn.net/hphotos-xpt1/t31.0-8/11095395_10155325983005618_1034016957607853157_o.jpg); height:350px; background-repeat:no-repeat; background-size:cover; align:center;">
+    <h1 style="text-align:center; font-family:sans-serif; font-size:500%; font-weight:300; color:#FFF002">Ask your question here!</h1>      
+  </div> 
 </div>
-<!--End of Jumbotron -->
+    <!--End of Jumbotron -->
 
 <div class="container col-md-offset-3 col-md-6 col-md-offset-3">
 

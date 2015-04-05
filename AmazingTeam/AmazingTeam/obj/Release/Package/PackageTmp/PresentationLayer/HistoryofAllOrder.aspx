@@ -1,54 +1,76 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PresentationLayer/C2.Master" AutoEventWireup="true" CodeBehind="HistoryofAllOrder.aspx.cs" Inherits="AmazingTeam.PresentationLayer.HistoryofAllOrder" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
-<!--My Jumbotron -->
-<div class="container">
-  <div class="jumbotron">
-    <h1 style="text-align:center;">History of All Orders!</h1>      
-  </div>
-</div>
-<!--End of Jumbotron -->
 
+    <script>
+          $(function () {
+              $("#datepicker").datepicker();
+          });
+  </script>
+
+       <!--My Jumbotron -->
+    <div class="container">
+  <div class="jumbotron"; style="background-image:url(https://scontent-sea.xx.fbcdn.net/hphotos-xap1/t31.0-8/11053700_10155325983220618_8816080783214340075_o.jpg); height:350px; background-repeat:no-repeat; background-size:cover; align:center;">
+    <h1 style="text-align:center; font-family:sans-serif; font-size:500%; font-weight:300; color:#FFF002">History of All Orders!</h1>      
+  </div> 
+</div>
+    <!--End of Jumbotron -->
+
+<!--Tabs for other Admin Pages -->
+<div class="container">
+	<ul class="nav nav-tabs">
+        <li><a href="AddFindUpdateDeleteMenu.aspx"><span class="glyphicon glyphicon-apple"></span> Inventory</a></li>
+        <li><a href="ApproveTestimonial.aspx"><span class="glyphicon glyphicon-book"></span> Review Testimonial</a></li>
+        <li><a href="HistoryofAllOrder.aspx"><span class="glyphicon glyphicon-header"></span> History Of All Orders</a></li>
+        <li><a href="ReviewCustomerEnquiries.aspx"><span class="glyphicon glyphicon-user"></span> Review Customer Enquiries</a></li>
+        <li><a href="ReviewCurrentOrders.aspx"><span class="glyphicon glyphicon-scale"></span> Review Current Orders</a></li>
+    </ul>
+    <hr>
+</div>
+<!--End of Tabs for other Admin Pages  -->
 
 <form role="form" runat="server" method="post" >
 <div class="container col-md-offset-3 col-md-6 col-md-offset-3">
 <div class="row">
-      <div class="well well-sm"><strong><i class="glyphicon glyphicon-ok form-control-feedback"></i> Required Field</strong></div>
         
-        <div class="input-group col-md-12">
-          <asp:Label runat="server" id="MessageLine"></asp:Label>
-          <asp:GridView ID="HistoryOfAllOrderGrid" runat="server" weight="100%"  CellPadding="4" ForeColor="#333333" GridLines="None" PageSize="200">
-              <AlternatingRowStyle BackColor="White" />
-              <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-              <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-              <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
-              <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
-              <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
-              <SortedAscendingCellStyle BackColor="#FDF5AC" />
-              <SortedAscendingHeaderStyle BackColor="#4D0000" />
-              <SortedDescendingCellStyle BackColor="#FCF6C0" />
-              <SortedDescendingHeaderStyle BackColor="#820000" />
+    <center>
+        <asp:Label ID="MessageLine" runat="server" Font-Bold="True" Font-Size="Medium"></asp:Label>
+    </center>
+    <br />
+        <div class="input-group">
+          <asp:GridView ID="HistoryOfAllOrderGrid" runat="server" weight="100%"  CellPadding="3" ForeColor="Black" GridLines="Vertical" PageSize="200" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px">
+              <AlternatingRowStyle BackColor="#F4F4F4" />
+              <FooterStyle BackColor="#CCCCCC" />
+              <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+              <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+              <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+              <SortedAscendingCellStyle BackColor="#F1F1F1" />
+              <SortedAscendingHeaderStyle BackColor="#808080" />
+              <SortedDescendingCellStyle BackColor="#CAC9C9" />
+              <SortedDescendingHeaderStyle BackColor="#383838" />
             </asp:GridView>
         </div>
       <br />
       <div class="form-group">
-        <label>Order From Date</label>
+
+
+
+        <label>Order From Date &nbsp;&nbsp;<i>(MM/DD/YYYY)</i></label>
           <div class="input-group col-md-12">
-              <asp:TextBox class="form-control" ID="OrderFromDate" placeholder="From Date" runat="server" />
-              <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+              <asp:TextBox class="form-control" ID="OrderFromDate" placeholder="MM/DD/YYYY" runat="server" />
           </div>
 
       <div class="form-group">
-        <label>Order To Date</label>
+        <label>Order To Date &nbsp;&nbsp;<i>(MM/DD/YYYY)</i></label>
         <div class="input-group col-md-12">
-          <asp:TextBox class="form-control" ID="OrderToDate" placeholder="To Date" runat="server" />
-          <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+          <asp:TextBox class="form-control" ID="OrderToDate" placeholder="MM/DD/YYYY" runat="server" />
       </div>
     <hr />
     </div>
     </div>
       <div class="container">
-      <asp:Button id="SubmitDates" Text="Submit Dates" class="btn btn-default" runat="server" OnClick="SubmitDates_Click" />            
+      <asp:Button id="SubmitDates" Text="Submit Dates" class="btn btn-info" runat="server" OnClick="SubmitDates_Click" />            
       </div>
+  
   </form>
 
 </asp:Content>

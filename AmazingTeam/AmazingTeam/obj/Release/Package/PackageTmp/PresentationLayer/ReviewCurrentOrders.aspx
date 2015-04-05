@@ -1,50 +1,59 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PresentationLayer/C2.Master" AutoEventWireup="true" CodeBehind="ReviewCurrentOrders.aspx.cs" Inherits="AmazingTeam.PresentationLayer.ReviewCurrentOrders" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
-    <form id="form1" runat="server">
-    <div>
-    
-    </div>
-     <div align="center">
-    
-        
-         <br />
-         <br />
+
+
+           <!--My Jumbotron -->
+    <div class="container">
+  <div class="jumbotron"; style="background-image:url(https://scontent-sea.xx.fbcdn.net/hphotos-xta1/t31.0-8/11110819_10155325983010618_7988083829698962424_o.jpg); height:350px; background-repeat:no-repeat; background-size:cover; align:center;">
+    <h1 style="text-align:center; font-family:sans-serif; font-size:500%; font-weight:300; color:#FFF002">Review Current Orders!</h1>      
+  </div> 
+</div>
+    <!--End of Jumbotron -->
+
+<!--Tabs for other Admin Pages -->
+<div class="container">
+	<ul class="nav nav-tabs">
+        <li><a href="AddFindUpdateDeleteMenu.aspx"><span class="glyphicon glyphicon-apple"></span> Inventory</a></li>
+        <li><a href="ApproveTestimonial.aspx"><span class="glyphicon glyphicon-book"></span> Review Testimonial</a></li>
+        <li><a href="HistoryofAllOrder.aspx"><span class="glyphicon glyphicon-header"></span> History Of All Orders</a></li>
+        <li><a href="ReviewCustomerEnquiries.aspx"><span class="glyphicon glyphicon-user"></span> Review Customer Enquiries</a></li>
+        <li><a href="ReviewCurrentOrders.aspx"><span class="glyphicon glyphicon-scale"></span> Review Current Orders</a></li>
+    </ul>
+    <hr>
+</div>
+<!--End of Tabs for other Admin Pages  -->
+
+<form role="form" runat="server" method="post" >
+<div class="container">
+
+<div class="row">
+    <center>
         <asp:Label ID="lbMsg" runat="server" Font-Bold="True" Font-Size="Medium"></asp:Label>
-    
-         <br />
-         <br />
-         <br />
-         
-         <asp:Button ID="btnLoad" runat="server" Font-Bold="True" Font-Size="Large" 
-             Text="Load All Active Orders" onclick="btnLoad_Click" />
-    
-         <br />
-         <br />
+    </center>
          <br />    
-         <br />
-    
-         <asp:GridView ID="gvAllActiveOrders" runat="server" CellPadding="4"
-            onselectedindexchanged="gvAllActiveOrders_SelectedIndexChanged" HeaderStyle-BackColor="#CCCCCC" ForeColor="#333333" GridLines="None">
-             <AlternatingRowStyle BackColor="White" />
+         <asp:GridView ID="gvAllActiveOrders" runat="server" CellPadding="3" Width="100%"
+            onselectedindexchanged="gvAllActiveOrders_SelectedIndexChanged" HeaderStyle-BackColor="#CCCCCC" ForeColor="Black" GridLines="Vertical" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px">
+             <AlternatingRowStyle BackColor="#F4F4F4" />
          <Columns>
                 <asp:CommandField SelectText="De-Activate" ShowSelectButton="True" />
             </Columns>
-             <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+             <FooterStyle BackColor="#CCCCCC" />
 
-<HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White"></HeaderStyle>
-             <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
-             <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
-             <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
-             <SortedAscendingCellStyle BackColor="#FDF5AC" />
-             <SortedAscendingHeaderStyle BackColor="#4D0000" />
-             <SortedDescendingCellStyle BackColor="#FCF6C0" />
-             <SortedDescendingHeaderStyle BackColor="#820000" />
+<HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White"></HeaderStyle>
+             <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+             <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+             <SortedAscendingCellStyle BackColor="#F1F1F1" />
+             <SortedAscendingHeaderStyle BackColor="#808080" />
+             <SortedDescendingCellStyle BackColor="#CAC9C9" />
+             <SortedDescendingHeaderStyle BackColor="#383838" />
             </asp:GridView>
-         
-         
-         <br />
-         <br />
-        
+
+
+</div>
+
+
     </div>
-    </form>
+  </form>
+
+  
 </asp:Content>

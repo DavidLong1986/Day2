@@ -24,9 +24,22 @@
 
     </style>
 
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var url = window.location;
+        $('ul.nav a[href="' + url + '"]').parent().addClass('active');
+        $('ul.nav a').filter(function () {
+            return this.href == url;
+        }).parent().addClass('active');
+    });
+</script> 
+
+
        
 
-      <div class="navbar-wrapper">
+<div class="navbar-wrapper">
   <div class="container">
 
       <div class="widewrapper main">
@@ -41,18 +54,17 @@
 	      <span class="icon-bar"></span>
 	      <span class="icon-bar"></span>
 	    </a>
-        <a class="navbar-brand" href="HomePage.aspx">Home</a>
+        <a class="navbar-brand" href="HomePage.aspx"; style="font-size:15px";><b>HOME</b></a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-                <li><a href="Menu.aspx">Menu</a></li>
-                <li><a href="AboutUs.aspx">About Us</a></li>
-                <li><a href="Testimonial.aspx">Testimonials</a></li>
-                <li><a href="CustomerEnquire.aspx">Enquiries</a></li>
-                <li><a href="Contact.aspx">Contact</a></li>
+                <li><a href="Menu.aspx"; style="font-size:15px;">Menu</a></li>
+                <li><a href="AboutUs.aspx"; style="font-size:15px";>About Us</a></li>
+                <li><a href="Testimonial.aspx"; style="font-size:15px;">Testimonials</a></li>
+                <li><a href="CustomerEnquire.aspx"; style="font-size:15px;">Enquiries</a></li>
+                <li><a href="Contact.aspx"; style="font-size:15px;">Contact</a></li>
           </ul>
         </div>
-
     </div>
   </div><!-- /container -->
 </div><!-- /navbar wrapper -->

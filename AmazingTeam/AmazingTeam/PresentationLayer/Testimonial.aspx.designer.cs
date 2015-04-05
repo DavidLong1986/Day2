@@ -13,15 +13,6 @@ namespace AmazingTeam.PresentationLayer {
     public partial class Testimonial {
         
         /// <summary>
-        /// DynamicTable control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Table DynamicTable;
-        
-        /// <summary>
         /// MessageLabel control.
         /// </summary>
         /// <remarks>
@@ -29,6 +20,15 @@ namespace AmazingTeam.PresentationLayer {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label MessageLabel;
+        
+        /// <summary>
+        /// gvAllActive control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvAllActive;
         
         /// <summary>
         /// Name control.

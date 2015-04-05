@@ -174,38 +174,51 @@ namespace AmazingTeam.PresentationLayer
             AmazingTeam.BusinessLayer.BusinessLayer Controller = new AmazingTeam.BusinessLayer.BusinessLayer();
 
             string ProductIDs = ProductID.Text;
+            string Status = "GO";
+            string Message = "";
 
-            DataSet ProductDataSet = Controller.FindProduct(ProductIDs);
-
-            foreach (DataTable Table in ProductDataSet.Tables)
+            if (string.IsNullOrWhiteSpace(ProductID.Text))
             {
-                TableRow tblrow = new TableRow();
-                DynamicTable.Rows.Add(tblrow);
+                Status = "Stop";
+                Message = "-Search Product ID Must not be null or have whitespace" + " " + System.Environment.NewLine + Message + " " + System.Environment.NewLine;
+            }
 
-                foreach (DataColumn Column in Table.Columns)
+            FindMessage.Text = Message;
+
+            if (Status != "Stop")
+            {
+                DataSet ProductDataSet = Controller.FindProduct(ProductIDs);
+
+                foreach (DataTable Table in ProductDataSet.Tables)
                 {
-                    TableCell tblcell = new TableCell();
-                    tblcell.Text = Column.ColumnName;
-                    tblrow.Cells.Add(tblcell);
-                }
-                foreach (DataRow row in Table.Rows)
-                {
-                    tblrow = new TableRow();
+                    TableRow tblrow = new TableRow();
                     DynamicTable.Rows.Add(tblrow);
-                    for (int index = 0; index <= Table.Columns.Count - 1; index++)
-                    {
-                        TableCell newcell = new TableCell();
 
-                        decimal number;
-                        if (decimal.TryParse(row[index].ToString(), out number))
+                    foreach (DataColumn Column in Table.Columns)
+                    {
+                        TableCell tblcell = new TableCell();
+                        tblcell.Text = Column.ColumnName;
+                        tblrow.Cells.Add(tblcell);
+                    }
+                    foreach (DataRow row in Table.Rows)
+                    {
+                        tblrow = new TableRow();
+                        DynamicTable.Rows.Add(tblrow);
+                        for (int index = 0; index <= Table.Columns.Count - 1; index++)
                         {
-                            newcell.Text = Math.Round(number, 2).ToString();
+                            TableCell newcell = new TableCell();
+
+                            decimal number;
+                            if (decimal.TryParse(row[index].ToString(), out number))
+                            {
+                                newcell.Text = Math.Round(number, 2).ToString();
+                            }
+                            else
+                            {
+                                newcell.Text = row[index].ToString();
+                            }
+                            tblrow.Cells.Add(newcell);
                         }
-                        else
-                        {
-                            newcell.Text = row[index].ToString();
-                        }
-                        tblrow.Cells.Add(newcell);
                     }
                 }
             }

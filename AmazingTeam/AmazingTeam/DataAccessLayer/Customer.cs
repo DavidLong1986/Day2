@@ -90,7 +90,7 @@ namespace AmazingTeam.DataAccessLayer
             SqlDataAdapter MyDataAdapter = new SqlDataAdapter();
             MyDataAdapter.SelectCommand = MyCommand;
             DataSet MyDataSet = new DataSet();
-            MyDataSet.Tables.Add("Testimonial");
+
             MyDataAdapter.Fill(MyDataSet);
 
             MyConnection.Close();

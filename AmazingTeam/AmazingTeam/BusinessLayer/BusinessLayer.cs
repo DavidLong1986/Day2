@@ -50,7 +50,8 @@ namespace AmazingTeam.BusinessLayer
         }
         public DataSet FindTestimonial()
         {
-            DataSet TestDataSet = new DataSet();
+            DataSet TestDataSet;
+            TestDataSet = new DataSet();
 
             TestDataSet = AmazingTeam.DataAccessLayer.Owner.FindTestimonial();
             return TestDataSet;
@@ -121,12 +122,14 @@ namespace AmazingTeam.BusinessLayer
         }
         public DataSet FindApprovedTestimonial()
         {
-            DataSet TestDataSet = new DataSet();
+            DataSet TestDataSet;
+            TestDataSet = new DataSet();
 
-            TestDataSet = AmazingTeam.DataAccessLayer.Customer.FindApprovedTestimonial();
+            TestDataSet = AmazingTeam.DataAccessLayer.Customer.FindApprovedTestimonial(); //AmazingTeam.DataAccessLayer.Owner.SelectAllActiveEnquiries();
 
             return TestDataSet;
         }
+
 
         
     }

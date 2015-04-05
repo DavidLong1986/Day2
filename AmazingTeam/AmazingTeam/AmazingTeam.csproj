@@ -38,7 +38,35 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>..\packages\AjaxControlToolkit.7.1213\lib\45\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="AjaxMin">
+      <HintPath>..\packages\AjaxMin.4.97.4951.28483\lib\net40\AjaxMin.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.6\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Data.Edm.5.2.0\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Data.OData.5.2.0\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Configuration">
+      <HintPath>..\packages\Microsoft.WindowsAzure.ConfigurationManager.1.8.0.0\lib\net35-full\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage">
+      <HintPath>..\packages\WindowsAzure.Storage.2.1.0.3\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.Spatial, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\System.Spatial.5.2.0\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -66,6 +94,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\AjaxControlToolkit.dll" />
+    <Content Include="bin\AmazingTeam.dll" />
+    <Content Include="bin\AmazingTeam.pdb" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -90,7 +121,6 @@
     <Content Include="PresentationLayer\Menu.aspx" />
     <Content Include="PresentationLayer\ReviewCurrentOrders.aspx" />
     <Content Include="PresentationLayer\ReviewCustomerEnquiries.aspx" />
-    <Content Include="PresentationLayer\ReviewOrder.aspx" />
     <Content Include="PresentationLayer\SecurityForm.aspx" />
     <Content Include="PresentationLayer\SuccessTranscation.aspx" />
     <Content Include="PresentationLayer\Testimonial.aspx" />
@@ -204,13 +234,6 @@
     </Compile>
     <Compile Include="PresentationLayer\ReviewCustomerEnquiries.aspx.designer.cs">
       <DependentUpon>ReviewCustomerEnquiries.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="PresentationLayer\ReviewOrder.aspx.cs">
-      <DependentUpon>ReviewOrder.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="PresentationLayer\ReviewOrder.aspx.designer.cs">
-      <DependentUpon>ReviewOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="PresentationLayer\SecurityForm.aspx.cs">
       <DependentUpon>SecurityForm.aspx</DependentUpon>

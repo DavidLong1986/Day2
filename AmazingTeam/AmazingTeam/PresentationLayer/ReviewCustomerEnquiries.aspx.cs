@@ -26,63 +26,81 @@ namespace AmazingTeam.PresentationLayer
 {
     public partial class ReviewCustomerEnquiries : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+
+
+            protected void gvAllActive_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        int selectedEnq =Convert.ToInt32( gvAllActive.Rows[gvAllActive.SelectedIndex].Cells[1].Text.ToString());
+       
+       
+
+        AmazingTeam.BusinessLayer.BusinessLayer Controller = new AmazingTeam.BusinessLayer.BusinessLayer();
+        
+        if (Controller.DeactiveSelectedEnq(selectedEnq))
         {
-
-        }
-
-        protected void btnLoadActiveEnquires_Click(object sender, EventArgs e)
-        {
-           
-            AmazingTeam.BusinessLayer.BusinessLayer Controller = new AmazingTeam.BusinessLayer.BusinessLayer();
-
             DataSet EnqDataSet;
-
+            
             EnqDataSet = Controller.LoadAllActiveEnquiries();
             if (EnqDataSet.Tables[0].Rows.Count > 0)
+            {
+//------------ * New Line ------------------------
+		int deactivatedEnq = 0;
+                
+		gvAllActive.DataSource = EnqDataSet;
+                gvAllActive.DataBind();
+
+                
+
+                lbMsg.Text = gvAllActive.Rows.Count + " Active Customer Enquiries Retrived ... \n";
+
+//------------ * New Line ------------------------                
+		deactivatedEnq++;
+                lbDAMsg.Text = deactivatedEnq + " Customer Enquiries Deactivated ...\n";
+            }
+            else  
             {
                 gvAllActive.DataSource = EnqDataSet;
                 gvAllActive.DataBind();
 
                 lbMsg.Text = gvAllActive.Rows.Count + " Active Customer Enquiries Retrived ...";
-            }
-            else
-            {
-                {
-                    lbMsg.Text = "  No Active Enquiry...";
-                }
-            }
-        }
-        protected void gvAllActive_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int selectedEnq = Convert.ToInt32(gvAllActive.Rows[gvAllActive.SelectedIndex].Cells[1].Text.ToString());
 
+
+                gvAllActive.Visible = false;
+            }
             
-            AmazingTeam.BusinessLayer.BusinessLayer Controller = new AmazingTeam.BusinessLayer.BusinessLayer();
-
-            if (Controller.DeactiveSelectedEnq(selectedEnq))
-            {
-                lbMsg.Text = "Selected Enquiry Deactivated Successfully...";
-                DataSet EnqDataSet;
-
-                EnqDataSet = Controller.LoadAllActiveEnquiries();
-                if (EnqDataSet.Tables[0].Rows.Count > 0)
-                {
-                    gvAllActive.DataSource = EnqDataSet;
-                    gvAllActive.DataBind();
-                }
-                else
-                {
-                    lbMsg.Text = "No more Active Enquiries...";
-                    gvAllActive.Visible = false;
-                }
-
-            }
-            else
-            {
-                lbMsg.Text = "Selected Enquiry Could not be De-Activated/Deleted...";
-            }
-
         }
+        else
+        {
+            lbMsg.Text = "Selected Enquiry Could not be De-Activated/Deleted...";
+        }
+        
+    }
+
+//------------ * New Line ------------------------
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+
+        AmazingTeam.BusinessLayer.BusinessLayer Controller = new AmazingTeam.BusinessLayer.BusinessLayer();
+        DataSet EnqDataSet;
+
+        EnqDataSet = Controller.LoadAllActiveEnquiries();
+        if (EnqDataSet.Tables[0].Rows.Count > 0)
+        {
+            gvAllActive.DataSource = EnqDataSet;
+            gvAllActive.DataBind();
+
+            lbMsg.Text = gvAllActive.Rows.Count + " Active Customer Enquiries Retrived ...";
+        }
+        else
+        {
+            {
+                lbMsg.Text = gvAllActive.Rows.Count + " Active Customer Enquiries Retrived ...";
+
+            }
+        }
+
+    }
     }
 }

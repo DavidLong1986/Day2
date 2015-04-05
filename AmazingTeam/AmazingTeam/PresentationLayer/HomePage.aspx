@@ -14,8 +14,8 @@
             <img src="https://scontent-sea.xx.fbcdn.net/hphotos-xap1/t31.0-8/11051937_1039682316046511_7801753993608171767_o.jpg" alt="First slide">
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>Platters</h1>
-                    <p>Party platters are available in two sizes and can be customized based on your preferences.</p>
+                    <h1 style="font-size:50px;">Platters</h1>
+                    <p style="font-size:30px";>Party platters are available in two sizes and can be customized based on your preferences.</pstyle="font-size:100px;>
                     
                 </div>
             </div>
@@ -24,8 +24,8 @@
             <img src="https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-xap1/t31.0-8/10838248_1039682322713177_9189293895910908934_o.jpg" alt="Second slide">
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>Ingredients</h1>
-                    <p>These are just a few of the many quality ingredients used in making our products.</p>
+                    <h1 style="font-size:50px;">Ingredients</h1>
+                    <p style="font-size:30px";>These are just a few of the many quality ingredients used in making our products.</p>
                     
                 </div>
             </div>
@@ -34,8 +34,8 @@
             <img src="https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-xpf1/t31.0-8/10985428_1039682326046510_393023468666982059_o.jpg" alt="Third slide">
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>Nuts n’more</h1>
-                    <p>Pecans, peanuts, semi-sweet chocolate chips and dates to name a few.</p>
+                    <h1 style="font-size:50px;">Nuts n’more</h1>
+                    <p style="font-size:30px";>Pecans, peanuts, semi-sweet chocolate chips and dates to name a few.</p>
                 </div>
             </div>
         </div>

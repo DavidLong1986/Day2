@@ -13,15 +13,6 @@ namespace AmazingTeam.PresentationLayer {
     public partial class ReviewCustomerEnquiries {
         
         /// <summary>
-        /// form1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
-        /// <summary>
         /// lbMsg control.
         /// </summary>
         /// <remarks>
@@ -31,13 +22,13 @@ namespace AmazingTeam.PresentationLayer {
         protected global::System.Web.UI.WebControls.Label lbMsg;
         
         /// <summary>
-        /// btnLoadActiveEnquires control.
+        /// lbDAMsg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLoadActiveEnquires;
+        protected global::System.Web.UI.WebControls.Label lbDAMsg;
         
         /// <summary>
         /// gvAllActive control.

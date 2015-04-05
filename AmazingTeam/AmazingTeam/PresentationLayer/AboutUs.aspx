@@ -1,10 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PresentationLayer/C2.Master" AutoEventWireup="true" CodeBehind="AboutUs.aspx.cs" Inherits="AmazingTeam.PresentationLayer.AboutUs" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
-         <!--My Jumbotron -->
+
+     <!--My Jumbotron -->
     <div class="container">
-  <div class="jumbotron">
-    <h1 style="text-align:center;">About C2 Desserts n'more </h1>      
-  </div>
+  <div class="jumbotron"; style="background-image:url(https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-xpa1/t31.0-8/11079517_10155325983120618_9145496129266760150_o.jpg); height:350px; background-repeat:no-repeat; background-size:cover; align:center;">
+    <h1 style="text-align:center; font-family:sans-serif; font-size:500%; font-weight:300; color:#FFF002 ">About C2 Desserts n'more</h1>      
+  </div> 
 </div>
     <!--End of Jumbotron -->
 

@@ -26,15 +26,61 @@ namespace AmazingTeam.PresentationLayer
 {
     public partial class ReviewCurrentOrders : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
-        {
 
+         protected void gvAllActiveOrders_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+        int selectedOrder = Convert.ToInt32(gvAllActiveOrders.Rows[gvAllActiveOrders.SelectedIndex].Cells[1].Text.ToString());
+
+     
+        AmazingTeam.BusinessLayer.BusinessLayer Controller = new AmazingTeam.BusinessLayer.BusinessLayer();
+
+        if (Controller.DeactiveSelectedOrder(selectedOrder))
+        {
+        
+//------------ * New Line ------------------------ 
+	    int deactivatedOrder = 0;
+            
+            lbMsg.Text = "Selected Order Deactivated/Deleted Successfully...";
+            DataSet EnqDataSet;
+            EnqDataSet = Controller.LoadAllActiveOrders();
+            if (EnqDataSet.Tables[0].Rows.Count > 0)
+            {
+
+                gvAllActiveOrders.DataSource = EnqDataSet;
+                gvAllActiveOrders.DataBind();
+//------------ * New Line ------------------------
+               deactivatedOrder++;
+                lbMsg.Text = deactivatedOrder+" Order Deactivared and " +gvAllActiveOrders.Rows.Count + " Orders are still Active... " ;
+            }
+            else
+            {
+                
+                gvAllActiveOrders.DataSource = EnqDataSet;
+                gvAllActiveOrders.DataBind();
+                
+               lbMsg.Text = gvAllActiveOrders.Rows.Count + " Active Customer Orders Retrieved ...";
+                
+
+                gvAllActiveOrders.Visible = false;
+               
+            }
+
+          }
+        else
+        {
+            lbMsg.Text = "Selected Order Could not be De-Activated/Deleted...";
         }
 
-        protected void btnLoad_Click(object sender, EventArgs e)
-        {
-            AmazingTeam.BusinessLayer.BusinessLayer Controller = new AmazingTeam.BusinessLayer.BusinessLayer();
-           
+      
+    }
+
+//------------ * New Line ------------------------
+    protected void Page_Load(object sender, EventArgs e)
+    
+    {
+
+        AmazingTeam.BusinessLayer.BusinessLayer Controller = new AmazingTeam.BusinessLayer.BusinessLayer();
 
             DataSet OrderDataSet;
             OrderDataSet = Controller.LoadAllActiveOrders();
@@ -48,52 +94,12 @@ namespace AmazingTeam.PresentationLayer
             else
             {
                 {
-                    lbMsg.Text = gvAllActiveOrders.Rows.Count + " Active Customer Orders Retrieved ...";
-
+                    lbMsg.Text = "No Active Orders...";
                 }
             }
+        
 
-        }
-        protected void gvAllActiveOrders_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            int selectedOrder = Convert.ToInt32(gvAllActiveOrders.Rows[gvAllActiveOrders.SelectedIndex].Cells[1].Text.ToString());
-
-            AmazingTeam.BusinessLayer.BusinessLayer Controller = new AmazingTeam.BusinessLayer.BusinessLayer();
-
-            if (Controller.DeactiveSelectedOrder(selectedOrder))
-            {
-
-                lbMsg.Text = "Selected Order Deactivated/Deleted Successfully...";
-                DataSet EnqDataSet;
-                EnqDataSet = Controller.LoadAllActiveOrders();
-                if (EnqDataSet.Tables[0].Rows.Count > 0)
-                {
-
-                    gvAllActiveOrders.DataSource = EnqDataSet;
-                    gvAllActiveOrders.DataBind();
-
-                }
-                else
-                {
-
-                    gvAllActiveOrders.DataSource = EnqDataSet;
-                    gvAllActiveOrders.DataBind();
-
-                    lbMsg.Text = gvAllActiveOrders.Rows.Count + " Active Customer Orders Retrieved ...";
-
-                    gvAllActiveOrders.Visible = false;
-
-                }
-
-            }
-            else
-            {
-                lbMsg.Text = "Selected Order Could not be De-Activated/Deleted...";
-            }
-
-
-        }
+    }
 
 
     }
