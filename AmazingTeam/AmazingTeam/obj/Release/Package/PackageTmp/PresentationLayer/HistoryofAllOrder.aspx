@@ -9,7 +9,7 @@
 
        <!--My Jumbotron -->
     <div class="container">
-  <div class="jumbotron"; style="background-image:url(https://scontent-sea.xx.fbcdn.net/hphotos-xap1/t31.0-8/11053700_10155325983220618_8816080783214340075_o.jpg); height:350px; background-repeat:no-repeat; background-size:cover; align:center;">
+  <div class="jumbotron"; style="background-image:url(https://scontent-sea.xx.fbcdn.net/hphotos-xaf1/t31.0-8/11080840_1063234707024605_7922385281201566577_o.jpg); height:350px; background-repeat:no-repeat; background-size:cover; align:center;">
     <h1 style="text-align:center; font-family:sans-serif; font-size:500%; font-weight:300; color:#FFF002">History of All Orders!</h1>      
   </div> 
 </div>

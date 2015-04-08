@@ -4,7 +4,7 @@
 
        <!--My Jumbotron -->
     <div class="container">
-  <div class="jumbotron"; style="background-image:url(https://scontent-sea.xx.fbcdn.net/hphotos-xpa1/t31.0-8/10866078_10155325983240618_7090126656235983575_o.jpg); height:350px; background-repeat:no-repeat; background-size:cover; align:center;">
+  <div class="jumbotron"; style="background-image:url(https://scontent-sea.xx.fbcdn.net/hphotos-xtf1/t31.0-8/11082221_1063234697024606_118511243090931069_o.jpg); height:350px; background-repeat:no-repeat; background-size:cover; align:center;">
     <h1 style="text-align:center; font-family:sans-serif; font-size:500%; font-weight:300; color:#FFF002">Review Testimonial!</h1>      
   </div> 
 </div>

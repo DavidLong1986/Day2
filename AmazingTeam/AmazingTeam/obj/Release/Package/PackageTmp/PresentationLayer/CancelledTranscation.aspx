@@ -4,7 +4,7 @@
     
     <!--My Jumbotron -->
     <div class="container">
-  <div class="jumbotron"; style="background-image:url(https://scontent-sea.xx.fbcdn.net/hphotos-xft1/t31.0-8/10499351_10155325983135618_2232477404973545539_o.jpg); height:350px; background-repeat:no-repeat; background-size:cover; align:center;">
+  <div class="jumbotron"; style="background-image:url(https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-xap1/t31.0-8/11146371_1063234677024608_8861221501102767410_o.jpg); height:350px; background-repeat:no-repeat; background-size:cover; align:center;">
     <h1 style="text-align:center; font-family:sans-serif; font-size:500%; font-weight:300; color: red">Your purchase is cancelled!</h1>      
   </div> 
 </div>

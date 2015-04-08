@@ -3,7 +3,7 @@
 
    <!--My Jumbotron -->
     <div class="container">
-  <div class="jumbotron"; style="background-image:url(https://scontent-sea.xx.fbcdn.net/hphotos-xfa1/t31.0-8/11084089_10155325983325618_3632523070359408870_o.jpg); height:350px; background-repeat:no-repeat; background-size:cover; align:center;">
+  <div class="jumbotron"; style="background-image:url(https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-xpa1/t31.0-8/11136107_1063234710357938_4072723632489221901_o.jpg); height:350px; background-repeat:no-repeat; background-size:cover; align:center;">
     <h1 style="text-align:center; font-family:sans-serif; font-size:500%; font-weight:300; color:#FFF002">Administration Page!</h1>      
   </div> 
 </div>

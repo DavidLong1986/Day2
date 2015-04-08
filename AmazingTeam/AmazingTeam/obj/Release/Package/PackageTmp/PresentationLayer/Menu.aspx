@@ -60,7 +60,7 @@
 
     <!--My Jumbotron -->
     <div class="container">
-  <div class="jumbotron"; style="background-image:url(https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-xpf1/t31.0-8/11000316_10155325983255618_8304486088395673214_o.jpg); height:350px; background-repeat:no-repeat; background-size:cover; align:center;">
+  <div class="jumbotron"; style="background-image:url(https://scontent-sea.xx.fbcdn.net/hphotos-xpa1/t31.0-8/11136182_1063234723691270_6114928497860491664_o.jpg); height:350px; background-repeat:no-repeat; background-size:cover; align:center;">
     <h1 style="text-align:center; font-family:sans-serif; font-size:500%; font-weight:300; color:#FFF002 ">Shop our amazing desserts! TEST SITE</h1>      
   </div> 
 </div>

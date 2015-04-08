@@ -4,7 +4,7 @@
 
     <!--My Jumbotron -->
     <div class="container">
-  <div class="jumbotron"; style="background-image:url(https://scontent-sea.xx.fbcdn.net/hphotos-xat1/t31.0-8/11134062_10155325983095618_4122151366096095791_o.jpg); height:350px; background-repeat:no-repeat; background-size:cover; align:center;">
+  <div class="jumbotron"; style="background-image:url(https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-xap1/t31.0-8/11084189_1063234793691263_9159512871517606846_o.jpg); height:350px; background-repeat:no-repeat; background-size:cover; align:center;">
     <h1 style="text-align:center; font-family:sans-serif; font-size:500%; font-weight:300; color:#FFF002 ">What our customers say about us!</h1>      
   </div> 
 </div>
