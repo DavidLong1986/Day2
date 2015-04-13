@@ -34,6 +34,8 @@
         
     <center>
         <asp:Label ID="MessageLine" runat="server" Font-Bold="True" Font-Size="Medium"></asp:Label>
+        <br />
+        <asp:Label ID="MessageLineTwo" runat="server" Font-Bold="True" Font-Size="Medium"></asp:Label>
     </center>
     <br />
         <div class="input-group">

@@ -166,6 +166,11 @@ CREATE TABLE Testimonial
 	Comments [ntext] NULL,
 	PostDate datetime null,
 	ActiveStatus bit null
+	 CONSTRAINT [PK_Testimonial] PRIMARY KEY CLUSTERED 
+(
+	TestimonialID ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
 )
 go
 ----------------End of Create table----------------------
@@ -764,7 +769,7 @@ values (1, 'Chum')
 insert into dbo.LoginExtended(LoginID, SecurityQuestionRespond)
 values (2, 'John')
 insert into dbo.LoginExtended(LoginID, SecurityQuestionRespond)
-values (3, 'Olga')
+values (3, 'Gizmo')
 go
 Select * from Products
 Select * from Category
@@ -773,6 +778,10 @@ select * from Customers
 select * from Customer_Enquiries
 select * from Login
 Select * from Testimonial
+
+
+
+
 
 
 

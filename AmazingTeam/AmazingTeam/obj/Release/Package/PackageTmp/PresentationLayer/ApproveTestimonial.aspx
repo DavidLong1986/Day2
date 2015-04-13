@@ -58,7 +58,7 @@
         </div>
       <br />
       <asp:Button id="Like" Text="Like" class="btn btn-info" runat="server" OnClick="Like_Click"  /> 
-      <asp:Button id="Dislike" Text="Delete" class="btn btn-danger" runat="server" OnClick="Dislike_Click" /> 
+      <asp:Button id="Dislike" Text="Dislike" class="btn btn-danger" runat="server" OnClick="Dislike_Click" /> 
 
 </div>
 </div>

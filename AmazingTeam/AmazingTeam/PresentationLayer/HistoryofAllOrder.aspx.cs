@@ -8,6 +8,7 @@ using Microsoft.VisualBasic;
 using System.Collections;
 using System.Data;
 using System.Diagnostics;
+using System.Globalization;
 
 namespace AmazingTeam.PresentationLayer
 {
@@ -23,27 +24,65 @@ namespace AmazingTeam.PresentationLayer
             AmazingTeam.BusinessLayer.BusinessLayer Controller = new AmazingTeam.BusinessLayer.BusinessLayer();
 
             DataTable HistoryOfAllOrderTable = null;
+            string Status = "GO";
+            string Message1 = "";
+            string Message2 = "";
+            string ValdateDateFrom = "00/00/0000";
+            string ValdateDateTo = "00/00/0000";
 
-            HistoryOfAllOrderTable = Controller.HistoryOfAllOrders(OrderFromDate.Text, OrderToDate.Text).Tables[0];
+            DateTime CheckDateFrom;
+            DateTime CheckDateTo;
 
-            if (HistoryOfAllOrderTable.Rows.Count == 0)
+            if (DateTime.TryParseExact(OrderFromDate.Text, "MM/dd/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out CheckDateFrom))
             {
-                HistoryOfAllOrderGrid.Visible = false;
-
-                MessageLine.Text = "";
-                MessageLine.Text = HistoryOfAllOrderTable.Rows.Count + "  History of all  Orders Found";
-
+                ValdateDateFrom = CheckDateFrom.ToString();
             }
-
             else
             {
-                HistoryOfAllOrderTable.DefaultView.Sort = "CustomerID";
+                Status = "Stop";
+                Message1 = "-Order From Date must be a date and must be in this format: MM/DD/YYYY" + " " + System.Environment.NewLine + Message1 + " " + System.Environment.NewLine;
+            }
 
-                //bind this to the grid
-                HistoryOfAllOrderGrid.DataSource = HistoryOfAllOrderTable;
-                HistoryOfAllOrderGrid.DataBind();
-                HistoryOfAllOrderGrid.Visible = true;
-                MessageLine.Text = HistoryOfAllOrderTable.Rows.Count + "  History of all  Orders Found";
+            if (DateTime.TryParseExact(OrderToDate.Text, "MM/dd/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out CheckDateTo))
+            {
+                ValdateDateTo = CheckDateTo.ToString();
+            }
+            else
+            {
+                Status = "Stop";
+                Message2 = "-Order To Date must be a date and must be in this format: MM/DD/YYYY" + " " + System.Environment.NewLine + Message2 + " " + System.Environment.NewLine;
+            }
+
+
+
+            if (Status != "Stop")
+            {
+                HistoryOfAllOrderTable = Controller.HistoryOfAllOrders(ValdateDateFrom, ValdateDateTo).Tables[0];
+
+                if (HistoryOfAllOrderTable.Rows.Count == 0)
+                {
+                    HistoryOfAllOrderGrid.Visible = false;
+
+                    MessageLine.Text = "";
+                    MessageLine.Text = HistoryOfAllOrderTable.Rows.Count + "  History of all  Orders Found";
+
+                }
+
+                else
+                {
+                    HistoryOfAllOrderTable.DefaultView.Sort = "CustomerID";
+
+                    //bind this to the grid
+                    HistoryOfAllOrderGrid.DataSource = HistoryOfAllOrderTable;
+                    HistoryOfAllOrderGrid.DataBind();
+                    HistoryOfAllOrderGrid.Visible = true;
+                    MessageLine.Text = HistoryOfAllOrderTable.Rows.Count + "  History of all  Orders Found";
+                }
+            }
+            else
+            {
+                MessageLine.Text = Message1;
+                MessageLineTwo.Text = Message2;
             }
 
         }

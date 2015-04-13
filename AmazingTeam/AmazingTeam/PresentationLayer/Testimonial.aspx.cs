@@ -37,12 +37,12 @@ namespace AmazingTeam.PresentationLayer
                 gvAllActive.DataSource = TestDataSet;
                 gvAllActive.DataBind();
 
-                MessageLabel.Text = gvAllActive.Rows.Count + " Customer Testimonial Retrived...";
+                MessageLabel.Text = gvAllActive.Rows.Count + " Customer Testimonial Retrieved...";
             }
             else
             {
                 {
-                    MessageLabel.Text = gvAllActive.Rows.Count + " Customer Testimonial Retrived ...";
+                    MessageLabel.Text = gvAllActive.Rows.Count + " Customer Testimonial Retrieved ...";
 
                 }
             }

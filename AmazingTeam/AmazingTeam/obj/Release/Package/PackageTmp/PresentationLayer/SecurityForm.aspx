@@ -12,8 +12,7 @@
         <br />
     
     <p style="margin-left: 80px">
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; who was your favourite teacher in High 
-        School ?</p>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; what is the name of your first pet?</p>
     <p style="margin-left: 80px">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
          <asp:TextBox ID="Respond" runat="server" Width="247px"></asp:TextBox>
